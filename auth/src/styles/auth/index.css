@@ -1,0 +1,18 @@
+@import "../global/globals.css";
+@import "../global/globalAnimations.css";
+@import "./assets/_header.css";
+@import "./assets/_icons.css";
+@import "./assets/_wrapper.css";
+@import "./assets/_form.css";
+@import "./assets/_animations.css";
+
+body{
+    overflow-x: none;
+}
+.auth {
+  background-image: url("../../imgs/background.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}

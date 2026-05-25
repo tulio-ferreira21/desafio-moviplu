@@ -1,0 +1,171 @@
+.landing__header {
+  animation: fadeUp 1s ease;
+}
+
+.hero__left h1 {
+  animation: fadeRight 1s ease;
+}
+
+.hero__left p {
+  opacity: 0;
+
+  animation: fadeRight 1s ease forwards;
+
+  animation-delay: 0.2s;
+}
+
+.hero__buttons {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+
+  animation-delay: 0.4s;
+}
+
+.hero__primary {
+  animation: pulseButton 4s infinite ease-in-out;
+}
+
+.hero__secondary {
+  animation: floatingSoft 5s infinite ease-in-out;
+}
+
+.hero__right {
+  opacity: 0;
+
+  animation: fadeLeft 1.2s ease forwards;
+
+  animation-delay: 0.4s;
+}
+
+.hero__right img:nth-child(1) {
+  animation:
+    floatingSoftRotate 7s infinite ease-in-out,
+    pulseGlow 7s infinite ease-in-out;
+}
+
+.hero__right img:nth-child(2) {
+  animation: floating 6s infinite ease-in-out;
+}
+
+.hero__right img:nth-child(3) {
+  animation: floatingSoft 5s infinite ease-in-out;
+}
+
+.hero__phone {
+  animation:
+    phoneFloat 7s infinite ease-in-out,
+    pulseGlow 6s infinite ease-in-out;
+}
+
+.categories {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+
+  animation-delay: 0.8s;
+}
+
+.category {
+  animation: fadeUp 1s;
+}
+
+.products__header {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+
+  animation-delay: 1s;
+}
+
+.products__grid{
+    opacity: 0;
+    animation: fadeUp 1s ease forwards  ;
+    animation-delay: 1.2s;
+}
+.product__card {
+
+  animation: fadeUp 1s ease;
+  animation-delay: 1.2s;
+}
+
+.cta {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+
+  animation-delay: 1.4s;
+}
+
+.cta button {
+  animation: pulseButton 4s infinite ease-in-out;
+}
+
+
+.sidebar {
+  opacity: 0;
+
+  animation: fadeRight 1s ease forwards;
+}
+
+.sidebar__logo {
+  animation: fadeUp 1s ease;
+}
+
+.sidebar__logo img {
+  animation:
+    pulseGlow 6s infinite ease-in-out;
+}
+
+.sidebar__nav {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+
+  animation-delay: 0.2s;
+}
+
+.sidebar__link {
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.sidebar__link:hover {
+  transform: translateX(6px);
+}
+
+.sidebar__link.active {
+  animation: pulseGlow 5s infinite ease-in-out;
+}
+
+.sidebar__support {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+
+  animation-delay: 0.4s;
+}
+
+.sidebar__support a:hover {
+  transform: translateX(5px);
+}
+
+
+.sidebar__card {
+  opacity: 0;
+
+  animation:
+    fadeUp 1s ease forwards;
+
+  animation-delay: 0.6s;
+}
+
+.sidebar__card button {
+  animation: pulseButton 4s infinite ease-in-out;
+}
+
+.sidebar__card img {
+  animation: floatingSoftRotate 8s infinite ease-in-out;
+}

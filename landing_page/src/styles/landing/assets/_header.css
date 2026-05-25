@@ -1,0 +1,93 @@
+.landing__header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 3rem;
+}
+
+.landing__header__left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.landing__header__left img {
+  width: 52px;
+}
+
+.landing__header__left h2 {
+  font-size: 2.2rem;
+  color: #071133;
+  font-weight: 800;
+}
+
+.landing__nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.landing__nav a {
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.landing__nav a::before {
+  content: " ";
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #b56cff);
+  width: 0%;
+
+  position: absolute;
+  bottom: 0;
+
+  transition: 0.5s;
+}
+
+.landing__nav a:hover::before {
+  width: 100%;
+}
+.landing__nav a:hover {
+  color: #8b5cf6;
+}
+
+.landing__header__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.landing__header__right a{
+  background-color: #071133;
+  color: white;
+
+  padding: 1rem 2rem;
+
+  border-radius: 1rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.landing__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.landing__menu span {
+  width: 28px;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background-color: #071133;
+}

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../medias/imgs/logo-trocso.png" />
+
+    <link rel="stylesheet" href="./src/styles/auth/index.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>Cadastro - Trocso</title>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+  </head>
+
+  <body>
+    <main class="auth">
+      <header class="auth__header">
+        <a href="../landing_page/index.html">
+          <img src="./src/imgs/logo-trocso.png" alt="" />
+
+          <h2>Trocso</h2>
+        </a>
+      </header>
+
+      <section class="wrapper__auth">
+        <div class="wrapper__left">
+          <h1>
+            Reencontre.
+            <span>Renove.</span>
+            Recomece.
+          </h1>
+
+          <p>
+            Entre na plataforma onde objetos ganham novas histórias e pessoas
+            encontram novas possibilidades.
+          </p>
+
+          <div class="wrapper__cards">
+            <div class="auth__card">
+              <div class="auth__icon purple">↺</div>
+
+              <div>
+                <h3>Livre-se com facilidade</h3>
+              </div>
+            </div>
+
+            <div class="auth__card">
+              <div class="auth__icon green">⌘</div>
+
+              <div>
+                <h3>Consumo mais consciente</h3>
+              </div>
+            </div>
+
+            <div class="auth__card">
+              <div class="auth__icon yellow">♡</div>
+
+              <div>
+                <h3>Coisas ganham novas histórias</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="form__auth">
+          <div class="form__header">
+            <h2>Bem vindo à Trocso</h2>
+
+            <p>Cadastre-se já e comece.</p>
+          </div>
+
+          <div class="form__fields">
+            <div class="field" id="field_name">
+              <label>Nome</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-person"></i>
+                </span>
+
+                <input
+                  type="text"
+                  class="form-control form__input"
+                  placeholder="Digite seu nome"
+                  id="name"
+                />
+              </div>
+            </div>
+            <div class="field" id="field_email">
+              <label>Email</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-at"></i>
+                </span>
+
+                <input
+                  type="email"
+                  class="form-control form__input"
+                  placeholder="Digite seu email"
+                  id="email"
+                />
+              </div>
+            </div>
+
+            <div class="field" id="field_password">
+              <label>Senha</label>
+
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </span>
+
+                <input
+                  type="password"
+                  class="form-control form__input"
+                  placeholder="Digite sua senha"
+                  id="password"
+                />
+
+                <span class="input-group-text">
+                  <i class="bi bi-eye"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__options">
+            <div class="remember">
+              <input type="checkbox" />
+
+              <span>Lembrar de mim</span>
+            </div>
+
+            <a href="#"> Esqueci minha senha </a>
+          </div>
+          <button type="submit" class="form__button" id="submit_auth">
+            Entrar
+          </button>
+
+          <div class="form__register">
+            <p>Já possui uma conta?</p>
+
+            <a href="./signin.html"> Entrar </a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="../../scripts/auth/signup.js"></script>
+  </body>
+</html>

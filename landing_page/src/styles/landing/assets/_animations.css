@@ -1,0 +1,36 @@
+@import "../../global/globalAnimations.css";
+
+.landing__header {
+  animation: fadeUp 1s ease;
+}
+
+.hero__left h1 {
+  animation: fadeRight 1s ease;
+}
+
+.hero__left p {
+  opacity: 0;
+  animation: fadeRight 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.hero__buttons {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.hero__primary {
+  animation: pulseButton 3s infinite ease-in-out;
+}
+
+.hero__bottom {
+  opacity: 0;
+
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.hero__card__wrapper{
+    animation: floatingSoft 3s infinite;
+}

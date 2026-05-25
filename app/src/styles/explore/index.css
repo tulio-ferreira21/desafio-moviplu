@@ -1,0 +1,50 @@
+@import "../global/globalAnimations.css";
+@import "../global/globals.css";
+@import "./assets/_sidebar.css";
+@import "./assets/_topbar.css";
+@import "./assets/_products.css";
+@import "./assets/_hero.css";
+@import "./assets/_cta.css";
+@import "./assets/_categories.css";
+@import "./assets/_animations.css";
+@import "./assets/_responsive.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background: #f6f4f1;
+
+  color: #071133;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.explore {
+  display: flex;
+
+  min-height: 100vh;
+}
+
+.explore__content {
+  flex: 1;
+
+  padding: 2rem 3rem;
+}

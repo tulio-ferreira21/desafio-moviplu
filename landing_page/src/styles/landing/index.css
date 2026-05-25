@@ -1,0 +1,29 @@
+@import "../global/globals.css";
+@import "./assets/_header.css";
+@import "./assets/_hero.css";
+@import "./assets/_animations.css";
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+
+  background-image: url("../../imgs/hero-background.png");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.landing {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 4rem;
+}

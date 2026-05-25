@@ -1,0 +1,166 @@
+.hero {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero__left {
+  width: 100%;
+}
+
+.hero__left h1 {
+  font-size: 6rem;
+  line-height: 100px;
+
+  color: #071133;
+
+  font-weight: 800;
+
+  margin-bottom: 2rem;
+}
+
+.hero__left h1 span {
+  display: block;
+
+  background: linear-gradient(90deg, #8b5cf6, #b56cff);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__left p {
+  width: 75%;
+
+  font-size: 1.3rem;
+  line-height: 40px;
+
+  color: #5b6475;
+
+  margin-bottom: 2.5rem;
+}
+
+.hero__buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero__primary {
+  position: relative;
+  overflow: hidden;
+
+  background: #071133;
+  color: white;
+  padding: 1.3rem 2rem;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 20px 40px rgba(7, 17, 51, 0.2);
+
+  z-index: 1;
+}
+
+.hero__primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #8b5cf6, #b56cff);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.hero__primary:hover::before {
+  opacity: 1;
+}
+.hero__secondary {
+  background-color: rgba(255, 255, 255, 0.6);
+
+  backdrop-filter: blur(10px);
+  color: #111827;
+  padding: 1.3rem 2rem;
+
+  border-radius: 1.2rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  transition: 0.3s;
+}
+.hero__secondary:hover {
+  background-color: #0711338f;
+  color: white;
+}
+.hero__right {
+  width: 55%;
+  height: 700px;
+
+  position: relative;
+}
+
+.hero__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.hero__card__wrapper {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 2rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  padding: 1.5rem 2rem;
+}
+.hero__card {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero__icon {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  color: white;
+}
+
+.purple {
+  background-color: #8b5cf6;
+}
+
+.green {
+  background-color: #38b2ac;
+}
+
+.yellow {
+  background-color: #f6c453;
+}
+
+.hero__card h3 {
+  width: 180px;
+
+  font-size: 1rem;
+  line-height: 28px;
+
+  color: #111827;
+}
