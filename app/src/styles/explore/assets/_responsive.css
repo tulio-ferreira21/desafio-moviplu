@@ -104,6 +104,9 @@ img {
   .menu__mobile {
     display: flex;
   }
+  .topbar__top__mobile {
+    display: flex;
+  }
   .explore__content {
     padding: 1.5rem;
   }

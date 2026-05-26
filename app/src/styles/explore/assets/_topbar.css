@@ -121,7 +121,7 @@
   object-fit: cover;
 }
 .topbar__top__mobile {
-  display: flex;
+  display: none;
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
