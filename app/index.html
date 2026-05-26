@@ -24,26 +24,37 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
   </head>
 
   <body>
     <main class="explore">
-      <aside class="sidebar">
+      <aside class="sidebar active">
         <div>
+          <div class="actions__sidebar">
+            <button class="button__close" id="action__sidebar">
+              <i id="icon__action" class="bi bi-arrow-bar-right"></i>
+            </button>
+          </div>
           <a href="https://trocso.vercel.app/" class="sidebar__logo">
-          <!-- <a href="../../../index.html" class="sidebar__logo"> -->
+            <!-- <a href="../../../index.html" class="sidebar__logo"> -->
             <img src="./src/medias/imgs/logo-trocso.png" alt="" />
 
             <h2>Trocso</h2>
           </a>
-
           <nav class="sidebar__nav">
             <a href="#" class="sidebar__link active">
               <i class="bi bi-compass"></i>
               <span>Explorar</span>
             </a>
 
-            <a href="#" class="sidebar__link">  
+            <a href="#" class="sidebar__link">
               <i class="bi bi-megaphone"></i>
               <span>Anúncios</span>
             </a>
@@ -67,17 +78,17 @@
           <div class="sidebar__support">
             <a href="#">
               <i class="bi bi-question-circle"></i>
-              Como funciona
+              <span>Como funciona</span>
             </a>
 
             <a href="#">
               <i class="bi bi-life-preserver"></i>
-              Central de ajuda
+              <span>Central de ajuda</span>
             </a>
 
             <a href="#">
               <i class="bi bi-gear"></i>
-              Configurações
+              <span>Configurações</span>
             </a>
           </div>
         </div>
@@ -100,27 +111,47 @@
       </aside>
 
       <section class="explore__content">
-        <header class="topbar">
-          <div class="topbar__search">
-            <i class="bi bi-search"></i>
-
-            <input type="text" placeholder="O que você está procurando?" />
+        <header class="topbar__top__mobile">
+          <div class="topbar__logo">
+            <img src="./src/medias/imgs/logo-trocso.png" alt="" />
           </div>
-
-          <div class="topbar__actions">
-            <button class="publish__button">
-              <i class="bi bi-plus-lg"></i>
-              Publicar anúncio
-            </button>
-
-            <button class="notification">
+          <div class="topbar__top__right" id="topbar__actions__mobile">
+            <!-- <a href="">
+              <i class="bi bi-chat"></i>
+            </a>
+            <a href="">
               <i class="bi bi-bell"></i>
-            </button>
+            </a>
+            <button href="" class="profile" id="active__menu__mobile">
+              <img src="./src/medias/imgs/img_default.png" alt="" />
+            </button> -->
+            <a href="" class="button__auth">Entrar</a>
+          </div>
+        </header>
+        <header class="topbar">
+          <div class="topbar__bottom">
+            <div class="topbar__search input-group">
+              <i class="bi bi-search"></i>
 
-            <div class="profile">
-              <img src="../../medias/imgs/profile.png" alt="" />
+              <input type="text" placeholder="O que você está procurando?" />
+              <span class="input-group-text" id="state">PE</span>
+            </div>
 
-              <i class="bi bi-chevron-down"></i>
+            <div class="topbar__actions" id="topbar__actions">
+              <!-- <button class="publish__button">
+                <i class="bi bi-plus-lg"></i>
+                Publicar anúncio
+              </button>
+
+              <button class="notification">
+                <i class="bi bi-bell"></i>
+              </button>
+              <div class="profile">
+                <img src="../../medias/imgs/profile.png" alt="" />
+
+                <i class="bi bi-chevron-down"></i>
+              </div> -->
+              <a href="" class="button__auth">Entrar</a>
             </div>
           </div>
         </header>
@@ -200,23 +231,13 @@
             <span>Infantil</span>
           </div>
         </section>
-
-        <!-- PRODUCTS -->
-
         <section class="products">
-          <!-- HEADER -->
-
           <div class="products__header">
             <h2>Destaques para você</h2>
 
             <a href="#"> Ver todos </a>
           </div>
-
-          <!-- GRID -->
-
           <div class="products__grid">
-            <!-- CARD -->
-
             <article class="product__card">
               <div class="product__image">
                 <img src="../../medias/imgs/product-sofa.png" alt="" />
@@ -243,8 +264,6 @@
                 </div>
               </div>
             </article>
-
-            <!-- CARD -->
 
             <article class="product__card">
               <div class="product__image">
@@ -273,8 +292,6 @@
               </div>
             </article>
 
-            <!-- CARD -->
-
             <article class="product__card">
               <div class="product__image">
                 <img src="../../medias/imgs/product-bag.png" alt="" />
@@ -301,8 +318,6 @@
                 </div>
               </div>
             </article>
-
-            <!-- CARD -->
 
             <article class="product__card">
               <div class="product__image">
@@ -332,9 +347,6 @@
             </article>
           </div>
         </section>
-
-        <!-- CTA -->
-
         <section class="cta">
           <div class="cta__left">
             <i class="bi bi-stars"></i>
@@ -355,5 +367,50 @@
         </section>
       </section>
     </main>
+    <section class="menu__mobile">
+      <a href="#" class="mobile__link active">
+        <i class="bi bi-compass"></i>
+      </a>
+      <a href="" class="mobile__link">
+        <i class="bi bi-megaphone"></i>
+        <span></span>
+      </a>
+      <a href="" class="mobile__link plus">
+        <i class="bi bi-plus"></i>
+        <span></span>
+      </a>
+      <a href="" class="mobile__link">
+        <i class="bi bi-heart"></i>
+        <span></span>
+      </a>
+      <a href="" class="mobile__link">
+        <i class="bi bi-arrow-repeat"></i>
+        <span></span>
+      </a>
+    </section>
+    <script type="module" src="./src/scripts/services/auth.js"></script>
+    <script>
+      const iconAction = document.getElementById("icon__action");
+      const actionSidebar = document.getElementById("action__sidebar");
+      const sidebar = document.querySelector(".sidebar");
+
+      actionSidebar.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (sidebar.classList.contains("close")) {
+          sidebar.classList.remove("close");
+          sidebar.classList.add("active");
+
+          iconAction.classList.remove("bi-arrow-bar-right");
+          iconAction.classList.add("bi-arrow-bar-left");
+        } else {
+          sidebar.classList.remove("active");
+          sidebar.classList.add("close");
+
+          iconAction.classList.remove("bi-arrow-bar-left");
+          iconAction.classList.add("bi-arrow-bar-right");
+        }
+      });
+    </script>
   </body>
 </html>

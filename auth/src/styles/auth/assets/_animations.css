@@ -41,10 +41,7 @@
   opacity: 0;
 
   animation:
-    fadeLeft 1.2s ease forwards,
-    pulseGlow 3s infinite ease-in-out,
-    floatingSoft 3s infinite ease-in-out;
-
+    fadeLeft 1.2s ease forwards;
   animation-delay: 0.2s;
 }
 

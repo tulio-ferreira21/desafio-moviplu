@@ -2,6 +2,7 @@
 @import "./assets/_header.css";
 @import "./assets/_hero.css";
 @import "./assets/_animations.css";
+@import "./assets/_responsive.css";
 body {
   font-family: "Inter", sans-serif;
   min-height: 100vh;
@@ -9,7 +10,6 @@ body {
   background-image: url("../../imgs/hero-background.png");
   background-position: center;
   background-size: cover;
-  overflow: hidden;
 }
 
 button {
@@ -26,4 +26,5 @@ a {
   width: 100%;
   min-height: 100vh;
   padding: 2rem 4rem;
+  
 }

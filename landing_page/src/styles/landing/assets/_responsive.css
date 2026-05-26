@@ -1,0 +1,185 @@
+@media (max-width: 1200px) {
+  .hero__left h1 {
+    font-size: 5rem;
+    line-height: 85px;
+  }
+
+  .hero__left p {
+    width: 90%;
+  }
+
+  .landing__nav {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .landing__header {
+    margin-bottom: 4rem;
+  }
+
+  .landing__nav {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .hero__left {
+    width: 100%;
+  }
+
+  .hero__left h1 {
+    font-size: 4.5rem;
+    line-height: 75px;
+  }
+
+  .hero__left p {
+    width: 100%;
+    font-size: 1.15rem;
+    line-height: 34px;
+  }
+
+  .hero__buttons {
+    flex-wrap: wrap;
+  }
+
+  .hero__right {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero__bottom {
+    justify-content: flex-start;
+  }
+
+  .hero__card__wrapper {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing__header {
+    margin-bottom: 3rem;
+  }
+
+  .landing__header__left img {
+    width: 44px;
+  }
+
+  .landing__header__left h2 {
+    font-size: 1.8rem;
+  }
+
+  .landing__header__right a {
+    padding: 0.9rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .hero__left h1 {
+    font-size: 3.5rem;
+    line-height: 60px;
+  }
+
+  .hero__left p {
+    font-size: 1rem;
+    line-height: 30px;
+  }
+
+  .hero__buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero__card__wrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 1.5rem;
+  }
+
+  .hero__card {
+    width: 100%;
+  }
+
+  .hero__card h3 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .landing__menu {
+    display: none;
+  }
+  .landing__header {
+    justify-content: space-between;
+  }
+  .hero__left h1 {
+    font-size: 3.8rem;
+    line-height: 50px;
+  }
+
+  .hero__left p {
+    font-size: 0.95rem;
+    line-height: 28px;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    padding: 1rem 1.2rem;
+    border-radius: 1rem;
+  }
+
+  .hero__icon {
+    width: 52px;
+    height: 52px;
+
+    font-size: 1.2rem;
+  }
+
+  .hero__card {
+    align-items: flex-start;
+  }
+
+  .hero__card h3 {
+    font-size: 0.95rem;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .landing__header__left h2 {
+    font-size: 1.5rem;
+  }
+
+  .landing__header__right a {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero__left h1 {
+    font-size: 2.3rem;
+    line-height: 42px;
+  }
+
+  .hero__left p {
+    font-size: 0.9rem;
+    line-height: 25px;
+  }
+
+  .hero__card__wrapper {
+    border-radius: 1.5rem;
+  }
+}

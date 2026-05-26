@@ -111,7 +111,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  gap: 1rem;
   margin-top: 1.2rem;
   margin-bottom: 1.8rem;
 }
@@ -211,5 +211,14 @@
 
   .form__header h2 {
     font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .form__options{
+    align-items: first baseline;
+    flex-direction: column-reverse;
+  }
+  .form__options a  {
+    font-size: 12px;
   }
 }

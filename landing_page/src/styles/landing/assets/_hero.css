@@ -3,7 +3,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .hero__left {
@@ -58,10 +58,9 @@
   font-size: 1rem;
   font-weight: 600;
   box-shadow: 0 20px 40px rgba(7, 17, 51, 0.2);
-
+  text-decoration: none;
   z-index: 1;
 }
-
 .hero__primary::before {
   content: "";
   position: absolute;
@@ -101,66 +100,105 @@
 
   position: relative;
 }
-
 .hero__bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
+  display: none;
 }
+
 .hero__card__wrapper {
   display: flex;
-  align-items: center;
-  width: fit-content;
-  background-color: rgba(255, 255, 255, 0.55);
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.2rem;
 
-  backdrop-filter: blur(20px);
-
-  border-radius: 2rem;
-
-  border: 1px solid rgba(255, 255, 255, 0.6);
-
-  padding: 1.5rem 2rem;
+  flex-wrap: wrap;
 }
+
 .hero__card {
-  width: fit-content;
+  flex: 1;
+  min-width: 280px;
+  max-width: 340px;
+
+  background: white;
+
+  border-radius: 1.6rem;
+
+  padding: 1.4rem;
+
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
+
+  border: 1px solid #ececec;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero__card:hover {
+  transform: translateY(-4px);
+
+  border-color: #ddd6fe;
+
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.06);
 }
 
 .hero__icon {
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
 
-  border-radius: 50%;
+  flex-shrink: 0;
+
+  border-radius: 1.1rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: white;
 }
 
+.hero__card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hero__card__content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: #111827;
+
+  margin: 0;
+}
+
+.hero__card__content p {
+  font-size: 0.93rem;
+  line-height: 26px;
+
+  color: #6b7280;
+
+  margin: 0;
+}
+
 .purple {
-  background-color: #8b5cf6;
+  background: #8b5cf6;
 }
 
 .green {
-  background-color: #38b2ac;
+  background: #10b981;
 }
 
 .yellow {
-  background-color: #f6c453;
+  background: #f59e0b;
 }
 
-.hero__card h3 {
-  width: 180px;
-
-  font-size: 1rem;
-  line-height: 28px;
-
-  color: #111827;
+@media (max-width: 900px) {
+  .hero__card {
+    max-width: 100%;
+  }
 }

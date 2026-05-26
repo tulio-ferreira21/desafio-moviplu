@@ -1,15 +1,19 @@
 .topbar {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.topbar__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  width: 100%;
   margin-bottom: 2.5rem;
 }
-
 .topbar__search {
-  width: 460px;
-  height: 62px;
-
+  max-width: 460px;
+  width: 100%;
   border-radius: 1.2rem;
 
   background: white;
@@ -21,6 +25,10 @@
   padding: 0 1.4rem;
 
   border: 1px solid #ebe7e2;
+}
+
+.menu__mobile {
+  font-size: 26px;
 }
 
 .topbar__search i {
@@ -36,6 +44,7 @@
   background: transparent;
 
   font-size: 1rem;
+  padding: 1rem;
 }
 
 .topbar__search input::placeholder {
@@ -110,4 +119,85 @@
   border-radius: 50%;
 
   object-fit: cover;
+}
+.topbar__top__mobile {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  position: sticky;
+  top: 0;
+  margin-bottom: 1rem;
+  background: #f6f4f1;
+  z-index: 30;
+
+  padding: 1rem;
+}
+.topbar__logo {
+  width: 50px;
+}
+.topbar__top__right {
+  display: flex;
+  gap: 1rem;
+  justify-content: right;
+  align-items: center;
+}
+.topbar__top__right a {
+  color: #000000;
+
+  font-size: 22px;
+}
+.topbar__top__right button.profile {
+  transition: 0.5s;
+  font-size: 22px;
+}
+.topbar__top__right button.profile img {
+  width: 30px;
+  height: 30px;
+}
+.topbar__top__right button.profile:hover {
+  background-color: #9ca3af5d;
+}
+a.button__auth {
+  background: #000000;
+  color: #fff;
+
+  padding: .6rem 2rem;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  transition: .3s;
+
+}
+
+.button__auth:hover {
+  transform: translateY(-2px);
+  background-color: #8b5cf6;
+  box-shadow:
+    0 14px 30px rgba(7, 17, 51, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.button__auth:active {
+  transform: scale(0.98);
+}
+
+.button__auth:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.35);
+  outline-offset: 3px;
 }
