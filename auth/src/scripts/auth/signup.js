@@ -32,8 +32,10 @@ async function handleSubmit(formData) {
     );
 
   try {
-    const { data } = await api.post("/api/v1/auth/signun", formData);
-    localStorage.setItem("access_token", data?.access_token);
+    const { data } = await api.post("auth/signup", formData);
+    localStorage.setItem("access_token", data?.access_token)
+    window.location.href = `./src/pages/complete_profile/page.html`;
+
   } catch (error) {
     if (error.response?.data?.message) {
       return toast.error(error.response?.data?.message);
@@ -49,5 +51,5 @@ authSubmit.addEventListener("click", (e) => {
     password: password.value,
   };
   e.preventDefault();
-  handleSubmit(formData);
+  await handleSubmit(formData);
 });

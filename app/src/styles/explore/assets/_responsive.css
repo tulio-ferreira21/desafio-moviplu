@@ -104,6 +104,9 @@ img {
   .menu__mobile {
     display: flex;
   }
+  .spacer__mobile {
+    display: block;
+  }
   .topbar__top__mobile {
     display: flex;
   }

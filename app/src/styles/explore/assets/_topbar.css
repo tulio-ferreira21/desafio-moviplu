@@ -34,13 +34,20 @@
 .topbar__search i {
   color: #9ca3af;
 }
+.input-group-text {
+  border: none !important;
 
+  background: transparent !important;
+
+  padding-left: 1.2rem;
+  font-size: 1.1rem;
+}
 .topbar__search input {
   width: 100%;
 
   border: none;
-  outline: none;
-
+  outline: none !important;
+  box-shadow: none !important;
   background: transparent;
 
   font-size: 1rem;
@@ -92,8 +99,13 @@
   border: 1px solid #ebe7e2;
 
   color: #071133;
-
+  cursor: pointer;
+  transition: 0.5s;
   font-size: 1.1rem;
+}
+
+.notification:hover {
+  background-color: #9ca3af5d;
 }
 
 .profile {
@@ -106,10 +118,16 @@
   background: white;
 
   border: 1px solid #ebe7e2;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.8rem;
+
+  transition: 0.5s;
+}
+
+.profile:hover {
+  background-color: #9ca3af5d;
 }
 
 .profile img {
@@ -139,33 +157,33 @@
 .topbar__logo {
   width: 50px;
 }
-.topbar__top__right {
+.topbar__actions__mobile {
   display: flex;
   gap: 1rem;
   justify-content: right;
   align-items: center;
 }
-.topbar__top__right a {
+.topbar__actions__mobile a {
   color: #000000;
 
   font-size: 22px;
 }
-.topbar__top__right button.profile {
+.topbar__actions__mobile button.profile {
   transition: 0.5s;
   font-size: 22px;
 }
-.topbar__top__right button.profile img {
+.topbar__actions__mobile button.profile img {
   width: 30px;
   height: 30px;
 }
-.topbar__top__right button.profile:hover {
+.topbar__actions__mobile button.profile:hover {
   background-color: #9ca3af5d;
 }
 a.button__auth {
   background: #000000;
   color: #fff;
 
-  padding: .6rem 2rem;
+  padding: 0.6rem 2rem;
 
   border: none;
   border-radius: 14px;
@@ -181,8 +199,7 @@ a.button__auth {
   justify-content: center;
   gap: 0.6rem;
 
-  transition: .3s;
-
+  transition: 0.3s;
 }
 
 .button__auth:hover {

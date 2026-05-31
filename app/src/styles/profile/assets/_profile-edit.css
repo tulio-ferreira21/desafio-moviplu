@@ -1,0 +1,44 @@
+.field__edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.field__edit label {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.field__edit input {
+  background: transparent !important;
+
+  outline: none !important;
+
+  box-shadow: none !important;
+
+  font-size: 1rem;
+
+  color: #111827;
+}
+
+.field__edit input::placeholder{
+      color: #9ca3af;
+
+}
+/* .input-group:focus-within {
+  border-color: #8b5cf6;
+
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+}
+
+.input-group-text {
+  border: none !important;
+
+  background: transparent !important;
+
+  padding-left: 1.2rem;
+
+  color: #9ca3af !important;
+
+  font-size: 1.1rem;
+} */
+

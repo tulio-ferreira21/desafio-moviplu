@@ -5,7 +5,7 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 
 const authSubmit = document.getElementById("submit_auth");
-
+export const appUrl = "https://trocso-platform.vercel.app/"
 async function handleSubmit(formData) {
   if (!formData.email) {
     errorsOnAuthentication("email", "Informe seu email para continuar");
@@ -15,15 +15,14 @@ async function handleSubmit(formData) {
   }
   try {
     const { data } = await api.post("/auth/signin", formData);
-    localStorage.setItem("access_token", data?.access_token);
-
-    toast.success(data.message)
-
+    toast.success(data.message);
+    // window.location.href = `../app/src/auth/auth.html?tk=${encodeURIComponent(data?.access_token)}`;
+    window.location.href = `${appUrl}/src/auth/auth.html?tk=${encodeURIComponent(data?.access_token)}`
   } catch (error) {
     if (error.response?.data?.message) {
-      return alert(error.response.data.message);
+      return toast.error(error.response.data.message);
     }
-    alert("Erro interno no servidor");
+    toast.error("Erro interno no servidor");
   }
 }
 

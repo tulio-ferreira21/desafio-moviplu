@@ -3,11 +3,13 @@
 
   border-radius: 2.5rem;
 
-  background: linear-gradient(
-    135deg,
-    rgba(139, 92, 246, 0.08),
-    rgba(15, 185, 173, 0.08)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(138, 92, 246, 0.452),
+      rgba(15, 185, 174, 0.137)
+    ),
+    url("../../../medias/imgs/background_hero_explore.png") center/cover fixed;
 
   display: flex;
   align-items: center;
@@ -20,7 +22,6 @@
   margin-bottom: 2.5rem;
 
   max-width: 100%;
-  
 }
 .hero__left h1 {
   font-size: 5rem;

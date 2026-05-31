@@ -1,0 +1,50 @@
+@import "../global/globals.css";
+@import "../global/globalAnimations.css";
+@import "./assets/_profile_content.css";
+@import "./assets/_settings.css";
+@import "./assets/_sidebar.css";
+@import "./assets/_responsivity.css";
+@import "./assets/_animations.css";
+@import "./assets/_profile-edit.css";
+:root {
+  --primary: #8b5cf6;
+  --primary-light: #f3efff;
+
+  --text: #111827;
+  --text-light: #6b7280;
+
+  --border: #ebe7e2;
+
+  --background: #f8f8fb;
+  --white: #ffffff;
+
+  --shadow: 0 10px 40px rgba(17, 24, 39, 0.04);
+}
+.settings__body,    
+body {
+  background: var(--background);
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  color: var(--text);
+
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.settings__body {
+    overflow-x: hidden;
+}
+.settings,
+.profile {
+  display: flex;
+}

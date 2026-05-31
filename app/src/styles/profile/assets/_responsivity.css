@@ -1,0 +1,32 @@
+@media (max-width: 1200px) {
+  .profile__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .settings,
+  .profile {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+
+    height: auto;
+
+    position: relative;
+  }
+
+  .profile__content {
+    padding: 2rem 1.2rem;
+  }
+
+  .profile__top h1 {
+    font-size: 3rem;
+  }
+
+  .profile__infos {
+    grid-template-columns: 1fr;
+  }
+}

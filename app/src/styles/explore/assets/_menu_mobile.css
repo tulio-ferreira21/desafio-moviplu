@@ -87,3 +87,12 @@
 .mobile__link.plus:hover {
   background: #8b5cf6;
 }
+
+
+/* ATENÇÂO */
+/* GAMBIARRA DAS GRANDES */
+
+.spacer__mobile {
+  padding: 3rem;
+  display: none;
+}
