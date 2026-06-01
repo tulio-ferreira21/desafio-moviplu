@@ -1,8 +1,8 @@
-import { appUrl } from "../auth/sigin.js";
 import { steps } from "../data/steps.data.js";
 import api from "../services/api.service.js";
 import toast from "../services/toasts.js";
 
+const appUrl = "https://trocso-platform.vercel.app"
 const formContainer = document.getElementById("form__content");
 let stepPosition = Number(localStorage.getItem("position_step")) || 0;
 const token = localStorage.getItem("access_token");

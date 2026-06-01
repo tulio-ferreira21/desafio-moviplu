@@ -5,7 +5,7 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 
 const authSubmit = document.getElementById("submit_auth");
-export const appUrl = "https://trocso-platform.vercel.app/"
+const appUrl = "https://trocso-platform.vercel.app"
 async function handleSubmit(formData) {
   if (!formData.email) {
     errorsOnAuthentication("email", "Informe seu email para continuar");
