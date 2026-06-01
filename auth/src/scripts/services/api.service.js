@@ -1,8 +1,8 @@
 const api = axios.create({
   // Desenvolvimento
-  baseURL: "http://localhost:3000/api/v1",
+  // baseURL: "http://localhost:3000/api/v1",
   // Produção
-  // baseUrl: "https://url-back.com"
+  baseUrl: "https://backend-trocso.onrender.com/api/v1"
 });
 
 
