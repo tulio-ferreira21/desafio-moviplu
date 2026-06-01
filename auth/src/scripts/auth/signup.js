@@ -51,5 +51,5 @@ authSubmit.addEventListener("click", (e) => {
     password: password.value,
   };
   e.preventDefault();
-  await handleSubmit(formData);
+  handleSubmit(formData);
 });
