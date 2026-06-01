@@ -1,4 +1,4 @@
-import toast from "../../../../auth/src/scripts/services/toasts.js";
+import toast from "./toasts.js";
 import api from "../api/api.service.js";
 export async function verifyIsAuth() {
   const token = localStorage.getItem("access_token");
