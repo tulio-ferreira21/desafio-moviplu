@@ -38,25 +38,6 @@
   animation-delay: 0.4s;
 }
 
-.hero__right img:nth-child(1) {
-  animation:
-    floatingSoftRotate 7s infinite ease-in-out,
-    pulseGlow 7s infinite ease-in-out;
-}
-
-.hero__right img:nth-child(2) {
-  animation: floating 6s infinite ease-in-out;
-}
-
-.hero__right img:nth-child(3) {
-  animation: floatingSoft 5s infinite ease-in-out;
-}
-
-.hero__phone {
-  animation:
-    phoneFloat 7s infinite ease-in-out,
-    pulseGlow 6s infinite ease-in-out;
-}
 
 .categories {
   opacity: 0;
@@ -137,7 +118,7 @@
 }
 
 .sidebar__link.active {
-  animation: pulseGlow 5s infinite ease-in-out;
+  animation: pulseGlow 5s ease-in-out;
 }
 
 .sidebar__support {
@@ -163,9 +144,9 @@
 }
 
 .sidebar__card button {
-  animation: pulseButton 4s infinite ease-in-out;
+  animation: pulseButton 4s ease-in-out;
 }
 
 .sidebar__card img {
-  animation: floatingSoftRotate 8s infinite ease-in-out;
+  animation: floatingSoftRotate 8s ease-in-out;
 }
