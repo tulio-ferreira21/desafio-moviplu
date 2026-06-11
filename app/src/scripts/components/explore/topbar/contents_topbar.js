@@ -4,10 +4,10 @@ const topbarActionsDesktop = document.getElementById("topbar__actions");
 const topbarActionsMobile = document.getElementById("topbar__actions__mobile");
 const user = await verifyIsAuth();
 const contentTopbarActionsDesktop = `
-      <button class="publish__button">
+             <button class="publish__button" id="add-product">
                   <i class="bi bi-plus-lg"></i>
                   Publicar anúncio
-                </button>
+              </button>
 
                 <button class="notification">
                   <i class="bi bi-bell"></i>
@@ -15,7 +15,7 @@ const contentTopbarActionsDesktop = `
 
                 <a href="./src/pages/profile/page.html" class="profile" id="action-floatmenu-desktop">
                   <img src="${user && user?.img_url ? user?.img_url : "./src/medias/imgs/img_default.png"}" alt="" />
-                  </a>
+                </a>
   `;
 const contentTopbarActionsMobile = `
       <a href="">

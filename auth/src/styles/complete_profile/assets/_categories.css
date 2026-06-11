@@ -1,0 +1,34 @@
+
+.categories__selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category__chip {
+  padding: 0.9rem 1.3rem;
+
+  border: 1px solid #ebe7e2;
+
+  border-radius: 999px;
+
+  background: white;
+
+  font-weight: 600;
+
+  transition: 0.25s ease;
+}
+
+.category__chip:hover {
+  border-color: #8b5cf6;
+
+  color: #8b5cf6;
+}
+
+.category__chip.active {
+  background: linear-gradient(90deg, #8b5cf6, #b56cff);
+
+  color: white;
+
+  border-color: transparent;
+}
