@@ -9,7 +9,6 @@ export async function buildBodyProduct(products) {
   );
   // Lembrar => Object.values transforma em array
   //Lembrar => Object.FromEntries faz o contrário
-  console.log("Rodou");
   console.log("Produtos: ", products);
   return products
     .map(
