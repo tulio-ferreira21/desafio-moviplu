@@ -1,6 +1,12 @@
 @import "../global/globals.css";
 @import "../global/globalAnimations.css";
+@import "./assets/_animations.css";
+@import "./assets/_categories.css";
+@import "./assets/_form.css";
 
+body{
+  overflow: hidden;
+}
 .complete__profile__content {
   min-height: 100dvh;
   display: flex;
@@ -21,123 +27,4 @@
       transparent 30%
     ),
     url("../../imgs/background.png") center/cover fixed
-}
-
-.form__auth {
-  width: 100%;
-  max-width: 580px;
-
-  background: white;
-
-  border: 1px solid #ebe7e2;
-
-  border-radius: 2rem;
-
-  padding: 2.5rem;
-
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-}
-
-.form__header {
-  text-align: center;
-
-  margin-bottom: 2rem;
-}
-
-.form__header h2 {
-  font-size: 2rem;
-  font-weight: 800;
-
-  color: #071133;
-
-  margin-bottom: 0.6rem;
-}
-
-.form__header p {
-  color: #6b7280;
-
-  line-height: 28px;
-}
-
-.form__fields {
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
-}
-
-.field label {
-  display: block;
-
-  margin-bottom: 0.5rem;
-
-  font-weight: 600;
-
-  color: #071133;
-}
-
-.form__input {
-  height: 58px;
-}
-
-.input-group-text {
-  background: white;
-}
-
-.form__button {
-  width: 100%;
-  height: 60px;
-
-  margin-top: 2rem;
-
-  border: none;
-
-  border-radius: 1rem;
-
-  background: #071133;
-
-  color: white;
-
-  font-weight: 700;
-
-  transition: 0.3s ease;
-}
-
-.form__button:hover {
-  background: #8b5cf6;
-}
-
-/* CATEGORIES */
-
-.categories__selector {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.category__chip {
-  padding: 0.9rem 1.3rem;
-
-  border: 1px solid #ebe7e2;
-
-  border-radius: 999px;
-
-  background: white;
-
-  font-weight: 600;
-
-  transition: 0.25s ease;
-}
-
-.category__chip:hover {
-  border-color: #8b5cf6;
-
-  color: #8b5cf6;
-}
-
-.category__chip.active {
-  background: linear-gradient(90deg, #8b5cf6, #b56cff);
-
-  color: white;
-
-  border-color: transparent;
 }

@@ -1,3 +1,4 @@
+const username = localStorage.getItem("username");
 export const steps = [
   `
       <div class="form__header">
@@ -20,6 +21,7 @@ export const steps = [
                 class="form-control form__input"
                 placeholder="tulioandrade"
                 id="username"
+                value="${username ? username : ""}"
               />
             </div>
           </div>
@@ -28,7 +30,11 @@ export const steps = [
         <button type="button" class="form__button" id="btn_username">Continuar</button>
     `,
   `
-         <div class="form__header">
+   <button class="back_step" id="back_step">
+      <i class="bi bi-arrow-left"></i>
+      Voltar
+    </button>
+      <div class="form__header">
           <h2>Onde você está?</h2>
 
           <p>Isso ajuda a encontrar trocas perto de você.</p>
@@ -48,7 +54,12 @@ export const steps = [
                 class="form-control form__input"
                 placeholder="Ex: Garanhuns"
                 id="city"
+                list="cities_datalist"
               />
+
+              <datalist id="cities_datalist">
+                <option value="">Informe</option>
+              </datalist>
             </div>
           </div>
 
@@ -60,7 +71,7 @@ export const steps = [
                 <i class="bi bi-geo-alt"></i>
               </span>
 
-              <select class="form-control form__input" id="state">
+              <select class="form-control form__input" id="states">
                 <option value="">Selecione</option>
                 <option value="PE">Pernambuco</option>
                 <option value="AL">Alagoas</option>
@@ -73,36 +84,37 @@ export const steps = [
         </div>
     <button type="button" class="form__button" id="finish_profile">Finalizar perfil</button>
 
+
     `,
-//   `
-//           <div class="form__header">
-//           <h2>O que você gosta?</h2>
+  //   `
+  //           <div class="form__header">
+  //           <h2>O que você gosta?</h2>
 
-//           <p>Escolha algumas categorias para personalizar sua experiência.</p>
-//         </div>
+  //           <p>Escolha algumas categorias para personalizar sua experiência.</p>
+  //         </div>
 
-//         <div class="form__fields">
-//           <div class="categories__selector">
-//             <button type="button" class="category__chip">Eletrônicos</button>
+  //         <div class="form__fields">
+  //           <div class="categories__selector">
+  //             <button type="button" class="category__chip">Eletrônicos</button>
 
-//             <button type="button" class="category__chip">Casa</button>
+  //             <button type="button" class="category__chip">Casa</button>
 
-//             <button type="button" class="category__chip">Decoração</button>
+  //             <button type="button" class="category__chip">Decoração</button>
 
-//             <button type="button" class="category__chip">Livros</button>
+  //             <button type="button" class="category__chip">Livros</button>
 
-//             <button type="button" class="category__chip">Games</button>
+  //             <button type="button" class="category__chip">Games</button>
 
-//             <button type="button" class="category__chip">Moda</button>
+  //             <button type="button" class="category__chip">Moda</button>
 
-//             <button type="button" class="category__chip">Esportes</button>
+  //             <button type="button" class="category__chip">Esportes</button>
 
-//             <button type="button" class="category__chip">Música</button>
+  //             <button type="button" class="category__chip">Música</button>
 
-//             <button type="button" class="category__chip">Tecnologia</button>
-//           </div>
-//         </div>
+  //             <button type="button" class="category__chip">Tecnologia</button>
+  //           </div>
+  //         </div>
 
-//         <button type="button" class="form__button" id="finish_profile">Finalizar perfil</button>
-//     `,
+  //         <button type="button" class="form__button" id="finish_profile">Finalizar perfil</button>
+  //     `,
 ];

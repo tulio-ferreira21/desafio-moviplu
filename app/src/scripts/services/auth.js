@@ -21,3 +21,32 @@ export async function verifyIsAuth() {
     }
   }
 }
+
+export async function userIsAuthenticated() {
+  const token = localStorage.getItem("access_token");
+
+  try {
+    const res = await api.get("/user/me", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (res) return;
+    else {
+      window.location.href = "/app/index.html";
+    }
+  } catch (error) {
+    if (error.response?.data?.message) {
+      if (error.response?.data?.message === "Token inválido") {
+        localStorage.clear();
+        window.location.href = "/app/index.html";
+        toast.error(error.response?.data?.message);
+        return
+      }
+      toast.error(error.response?.data?.message);
+    }
+
+    toast.error("Erro interno no servidor");
+  }
+}
