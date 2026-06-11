@@ -68,7 +68,7 @@ btnUsername.addEventListener("click", async (e) => {
         { headers: { Authorization: `Bearer ${token}` } },
       );
       //   window.location.href = "../../../../app/index.html";
-      window.location.href = `${appUrl}/src/auth/auth.html?tk=${encodeURIComponent(data?.access_token)}`;
+      window.location.href = `${appUrl}/src/auth/auth.html?tk=${encodeURIComponent(token)}`;
     } catch (error) {
       if (error.response?.data?.message) {
         if (error.response?.data?.message === "Token inválido") {
