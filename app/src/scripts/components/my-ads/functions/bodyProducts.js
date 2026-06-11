@@ -4,13 +4,12 @@ import { getCategories } from "../../../services/loadCategories.js";
 
 export async function buildBodyProduct(products) {
   const categories = await getCategories();
-  console.log(typeof Object.values(categories));
   const categoriesById = Object.fromEntries(
     Object.values(categories).map((c) => [c.id, c]),
   );
   // Lembrar => Object.values transforma em array
   //Lembrar => Object.FromEntries faz o contrário
-  console.log(categoriesById);
+  console.log("Rodou");
   console.log("Produtos: ", products);
   return products
     .map(
