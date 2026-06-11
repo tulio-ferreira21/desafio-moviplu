@@ -64,7 +64,7 @@ btnUsername.addEventListener("click", async (e) => {
     try {
       const response = await api.patch(
         "/user/me",
-        { username, city, state },
+        { username: username.toLowerCase(), city, state },
         { headers: { Authorization: `Bearer ${token}` } },
       );
       //   window.location.href = "../../../../app/index.html";

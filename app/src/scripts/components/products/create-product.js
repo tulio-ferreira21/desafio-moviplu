@@ -1,4 +1,5 @@
 import { verifyIsAuth } from "../../services/auth.js";
+import { getDataAddress } from "../../services/getDataAddress.js";
 import { getCoordinates } from "../../services/getLocation.js";
 import { getCategories } from "../../services/loadCategories.js";
 import toast from "../../services/toasts.js";
@@ -6,17 +7,6 @@ import { addProduct } from "./functions/addProduct.js";
 import { formProduct } from "./functions/formProduct.js";
 
 const userAuthenticated = await verifyIsAuth();
-
-async function getDataAddress() {
-  try {
-    const basePath = "/auth/src/scripts/data/";
-    const citys = await fetch(`${basePath}citys.data.json`);
-    const states = await fetch(`${basePath}states.data.json`);
-    return { citys: await citys.json(), states: await states.json() };
-  } catch (error) {
-    alert(error);
-  }
-}
 
 if (userAuthenticated) {
   const btnOpenFormAddProduct = document.getElementById("add-product");

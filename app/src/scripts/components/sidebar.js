@@ -1,6 +1,6 @@
+import { BASE_PATH } from "../config/basePath.js";
 import { verifyIsAuth } from "../services/auth.js";
 
-const BASE_PATH = window.location.pathname.startsWith("/app") ? "/app" : "";
 const iconAction = document.getElementById("icon__action");
 const actionSidebar = document.getElementById("action__sidebar");
 const sidebar = document.querySelector(".sidebar");
