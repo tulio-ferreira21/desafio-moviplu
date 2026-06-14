@@ -14,10 +14,7 @@ export async function verifyIsAuth() {
     if (error.response?.data?.message) {
       if (error.response?.data?.message === "Token inválido") {
         localStorage.clear();
-        // window.location.href = ""
-        toast.error(error.response?.data?.message);
       }
-      toast.error(error.response?.data?.message);
     }
   }
 }
@@ -42,7 +39,7 @@ export async function userIsAuthenticated() {
         localStorage.clear();
         window.location.href = "/app/index.html";
         toast.error(error.response?.data?.message);
-        return
+        return;
       }
       toast.error(error.response?.data?.message);
     }

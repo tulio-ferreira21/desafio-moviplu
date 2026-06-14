@@ -1,4 +1,4 @@
-import { BASE_PATH } from "../config/basePath";
+import { BASE_PATH } from "../config/basePath.js";
 
 export async function getDataAddress() {
   try {

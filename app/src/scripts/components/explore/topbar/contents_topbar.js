@@ -1,3 +1,4 @@
+import { BASE_PATH } from "../../../config/basePath.js";
 import { verifyIsAuth } from "../../../services/auth.js";
 
 const topbarActionsDesktop = document.getElementById("topbar__actions");
@@ -13,8 +14,8 @@ const contentTopbarActionsDesktop = `
                   <i class="bi bi-bell"></i>
                 </button>
 
-                <a href="./src/pages/profile/page.html" class="profile" id="action-floatmenu-desktop">
-                  <img src="${user && user?.img_url ? user?.img_url : "./src/medias/imgs/img_default.png"}" alt="" />
+                <a href="${BASE_PATH}/src/pages/profile/page.html" class="profile" id="action-floatmenu-desktop">
+                  <img src="${user && user?.img_url ? user?.img_url : `${BASE_PATH}/src/medias/imgs/img_default.png`}" alt="imagem do usuário" />
                 </a>
   `;
 const contentTopbarActionsMobile = `
@@ -24,8 +25,8 @@ const contentTopbarActionsMobile = `
       <a href="">
           <i class="bi bi-bell"></i>
       </a>
-      <a href="./src/pages/profile/page.html" class="profile" id="action-floatmenu-mobile">
-          <img src="./src/medias/imgs/img_default.png" alt="" />
+      <a href="${BASE_PATH}/src/pages/profile/page.html" class="profile" id="action-floatmenu-mobile">
+        <img src="${user && user?.img_url ? user?.img_url : `${BASE_PATH}/src/medias/imgs/img_default.png`}" alt="imagem do usuário" />
       </a>
   `;
 if (user) {

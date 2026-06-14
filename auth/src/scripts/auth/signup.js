@@ -33,9 +33,8 @@ async function handleSubmit(formData) {
 
   try {
     const { data } = await api.post("auth/signup", formData);
-    localStorage.setItem("access_token", data?.access_token)
+    localStorage.setItem("access_token", data?.access_token);
     window.location.href = `./src/pages/complete_profile/page.html`;
-
   } catch (error) {
     if (error.response?.data?.message) {
       return toast.error(error.response?.data?.message);
@@ -45,11 +44,19 @@ async function handleSubmit(formData) {
 }
 
 authSubmit.addEventListener("click", (e) => {
-  const formData = {
-    name: name.value,
-    email: email.value,
-    password: password.value,
-  };
-  e.preventDefault();
-  handleSubmit(formData);
+  try {
+    authSubmit.style.opacity = 0.5;
+    authSubmit.textContent = "Entrando...";
+    const formData = {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    };
+    e.preventDefault();
+    handleSubmit(formData);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    ((authSubmit.style.opacity = 1), (authSubmit.textContent = "Entrar"));
+  }
 });

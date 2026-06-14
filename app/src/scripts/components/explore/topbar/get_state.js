@@ -14,3 +14,5 @@ const state = location?.state;
 if (state) {
   spanState.textContent = states[state];
 }
+
+export const currentStateUser = location?.state

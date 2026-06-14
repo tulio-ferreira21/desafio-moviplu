@@ -23,7 +23,10 @@ export async function handleEditProfile(data) {
   }
 }
 
-export const contentEditProfile = `
+export const contentEditProfile = async (user, address) => {
+  console.log("Rodou")
+  return;
+  `
   <div class="profile__card">
         <div class="profile__banner">
         <button class="button__edit" id="button-edit">
@@ -39,14 +42,14 @@ export const contentEditProfile = `
     <div class="profile__info">
       <div class="field__edit">
         <label for="name">Nome</label>
-        <input value="Jhon Doe" type="text" id="name" class="form-control"/>
+        <input value="${user.name}" type="text" id="name" class="form-control"/>
       </div> 
     </div>
 
     <div class="profile__info">
       <div class="field__edit">
         <label for="username">Nome de usuário</label>
-        <input value="jhon_doe" type="text" id="username" class="form-control" />
+        <input value="${user.username}" type="text" id="username" class="form-control" />
       </div>
     </div>
 
@@ -55,7 +58,7 @@ export const contentEditProfile = `
       <div class="field__edit">
           <label for="email">E-mail</label>
           <input
-            value="jhondoe@email.com"
+            value="${user.email}"
             type="email"
             id="email"
             class="form-control"
@@ -67,11 +70,12 @@ export const contentEditProfile = `
         <div class="field__edit">
           <label for="location">Localização</label>
           <input
-            value="Cidade, País"
+            value="${address}"
             type="text"
             id="location"
             placeholder="Cidade, País"
             class="form-control"
+            readonly
           />
         </div>
       </div>
@@ -86,3 +90,4 @@ export const contentEditProfile = `
   </div>
 </div>
 `;
+};

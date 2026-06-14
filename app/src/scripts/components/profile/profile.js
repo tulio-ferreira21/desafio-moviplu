@@ -2,7 +2,7 @@ import { verifyIsAuth } from "../../services/auth.js";
 import toast from "../../services/toasts.js";
 import { contentEditProfile, handleEditProfile } from "./edit_profile.js";
 
-const buttonEdit = document.getElementById("button-edit");
+const buttonEdit = document.querySelector(".button__edit");
 const profileContent = document.getElementById("profile__content");
 
 const userAuthenticated = await verifyIsAuth();
@@ -10,7 +10,10 @@ const userAuthenticated = await verifyIsAuth();
 if (!userAuthenticated)
   toast.error("Usuário não autenticado. Usando perfil padrão  do sistema");
 
-const addressUser = userAuthenticated?.city && userAuthenticated?.state ? `${userAuthenticated?.city}, ${userAuthenticated?.state}, BR` : "Não informado"
+const addressUser =
+  userAuthenticated?.city && userAuthenticated?.state
+    ? `${userAuthenticated?.city}, ${userAuthenticated?.state}, BR`
+    : "Não informado";
 const contentProfile = `
         <div class="profile__card">
             <div class="profile__banner">
@@ -52,22 +55,22 @@ const contentProfile = `
 
 if (userAuthenticated) {
   profileContent.innerHTML = contentProfile;
+
+  buttonEdit.addEventListener("click", async () => {
+    profileContent.innerHTML = await contentEditProfile(userAuthenticated, addressUser);
+
+    const cancelEdit = document.getElementById("cancel-edit");
+    const saveEdit = document.getElementById("save-edit");
+
+    cancelEdit.addEventListener("click", () => {
+      window.location.reload();
+      // profileContent.innerHTML = contentProfile;
+      // return
+    });
+
+    saveEdit.addEventListener("click", () => {
+      handleEditProfile();
+      return;
+    });
+  });
 }
-
-buttonEdit.addEventListener("click", () => {
-  profileContent.innerHTML = contentEditProfile;
-
-  const cancelEdit = document.getElementById("cancel-edit");
-  const saveEdit = document.getElementById("save-edit");
-
-  cancelEdit.addEventListener("click", () => {
-    window.location.reload()
-    // profileContent.innerHTML = contentProfile;
-    // return
-  });
-
-  saveEdit.addEventListener("click", () => {
-    handleEditProfile();
-    return
-  });
-});

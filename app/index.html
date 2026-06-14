@@ -205,114 +205,8 @@
 
             <a href="#"> Ver todos </a>
           </div>
-          <div class="products__grid">
-            <article class="product__card">
-              <div class="product__image">
-                <img src="../../medias/imgs/product-sofa.png" alt="" />
-
-                <button>
-                  <i class="bi bi-heart-fill"></i>
-                </button>
-              </div>
-
-              <div class="product__content">
-                <h3>Sofá 3 lugares</h3>
-
-                <span>Casa</span>
-
-                <p>Troco por algo do meu interesse</p>
-
-                <div class="product__footer">
-                  <small>
-                    <i class="bi bi-geo-alt"></i>
-                    São Paulo, SP
-                  </small>
-
-                  <small>2h atrás</small>
-                </div>
-              </div>
-            </article>
-
-            <article class="product__card">
-              <div class="product__image">
-                <img src="../../medias/imgs/product-headphone.png" alt="" />
-
-                <button>
-                  <i class="bi bi-heart-fill"></i>
-                </button>
-              </div>
-
-              <div class="product__content">
-                <h3>Fone Sony</h3>
-
-                <span>Eletrônicos</span>
-
-                <p>Troco por decoração ou livros</p>
-
-                <div class="product__footer">
-                  <small>
-                    <i class="bi bi-geo-alt"></i>
-                    Curitiba, PR
-                  </small>
-
-                  <small>5h atrás</small>
-                </div>
-              </div>
-            </article>
-
-            <article class="product__card">
-              <div class="product__image">
-                <img src="../../medias/imgs/product-bag.png" alt="" />
-
-                <button>
-                  <i class="bi bi-heart-fill"></i>
-                </button>
-              </div>
-
-              <div class="product__content">
-                <h3>Mochila impermeável</h3>
-
-                <span>Moda</span>
-
-                <p>Troco por itens para setup</p>
-
-                <div class="product__footer">
-                  <small>
-                    <i class="bi bi-geo-alt"></i>
-                    Recife, PE
-                  </small>
-
-                  <small>1d atrás</small>
-                </div>
-              </div>
-            </article>
-
-            <article class="product__card">
-              <div class="product__image">
-                <img src="../../medias/imgs/product-books.png" alt="" />
-
-                <button>
-                  <i class="bi bi-heart-fill"></i>
-                </button>
-              </div>
-
-              <div class="product__content">
-                <h3>Coleção de livros</h3>
-
-                <span>Livros</span>
-
-                <p>Troco por eletrônicos</p>
-
-                <div class="product__footer">
-                  <small>
-                    <i class="bi bi-geo-alt"></i>
-                    Porto Alegre, RS
-                  </small>
-
-                  <small>1d atrás</small>
-                </div>
-              </div>
-            </article>
+          <div class="products__grid" id="products-container">
+            <span class="text-muted fs-5">Carregando...</span>
           </div>
         </section>
       </section>
@@ -346,5 +240,6 @@
     ></script>
 
     <script type="module" src="./src/scripts/components/products/create-product.js"></script>
+    <script type="module" src="./src/scripts/components/products/loadingProducts.js"></script>
   </body>
 </html>

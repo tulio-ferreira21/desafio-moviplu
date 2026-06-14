@@ -1,0 +1,55 @@
+.link__back {
+  animation: fadeRight 0.8s ease;
+}
+
+.product__gallery {
+  animation: scaleIn 0.8s ease;
+}
+
+.product__category {
+  animation: fadeUp 0.8s ease;
+}
+
+.product__info h1 {
+  animation: fadeUp 1s ease;
+}
+
+.product__description__short {
+  animation: fadeUp 1.2s ease;
+}
+
+.product__meta {
+  animation: fadeUp 1.4s ease;
+}
+
+.product__actions {
+  animation: fadeUp 1.6s ease;
+}
+
+.product__card:nth-child(1) {
+  animation: fadeUp 1s ease;
+}
+
+.product__card:nth-child(2) {
+  animation: fadeUp 1.2s ease;
+}
+
+.product__card:nth-child(3) {
+  animation: fadeUp 1.4s ease;
+}
+
+.location__box {
+  animation: fadeLeft 1.4s ease;
+}
+
+.info__grid > div:nth-child(1) {
+  animation: fadeUp 1.4s ease;
+}
+
+.info__grid > div:nth-child(2) {
+  animation: fadeUp 1.6s ease;
+}
+
+.info__grid > div:nth-child(3) {
+  animation: fadeUp 1.8s ease;
+}
