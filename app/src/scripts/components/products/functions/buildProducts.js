@@ -11,6 +11,10 @@ export async function buildProducts(products) {
 
   const productsContainer = document.querySelector("#products-container");
 
+  if (products.length === 0) {
+    document.getElementById('not-found').innerHTML = 'Nenhum produto encontrado'
+    return
+  }
   productsContainer.innerHTML = products
     .map((product) => {
       const category = categoriesById[product.categoryId];

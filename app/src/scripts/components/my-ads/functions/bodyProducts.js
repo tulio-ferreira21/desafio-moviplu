@@ -13,7 +13,7 @@ export async function buildBodyProduct(products) {
   return products
     .map(
       (product) => `
-        <div class="product__card">
+        <a href='./product.html?id=${product.id}' class="product__card">
           <div class="product__image">
             <img
               src="${product.imagesUrl?.[0] || "/assets/no-image.png"}"
@@ -60,7 +60,7 @@ export async function buildBodyProduct(products) {
               </button>
             </div>
           </div>
-        </div>
+        </a>
       `,
     )
     .join("");

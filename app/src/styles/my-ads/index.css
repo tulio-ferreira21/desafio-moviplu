@@ -1,7 +1,7 @@
 @import "../global/globals.css";
 @import "../global/globalAnimations.css";
 @import "../explore/index.css";
-
+@import "./assets/_bids.css";
 .my__ads .hero__actions {
   margin-top: 2rem;
 }

@@ -14,4 +14,4 @@ async function getProducts(state) {
 
 const products = await getProducts(currentStateUser);
 
-buildProducts(products)
+await buildProducts(products)

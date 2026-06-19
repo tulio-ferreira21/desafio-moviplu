@@ -204,11 +204,12 @@ export const formAddProductContent = `
 
 export const formCreateBid = `
     <form class="form__bid">
-      <h2>Fazer Oferta</h2>
+      <h2>Fazer <span>Oferta</span></h2>
+      <p>Envie uma oferta para o vendendor para ter a chance de adquirir o produto</p>
       <div class="field__form">
         <label class="form-label">Tipo de Oferta</label>
         <select name="tipo de oferta" id="bid-type" class="form-control">
-          <option value="null" selected disabled>
+          <option value="" selected disabled>
             Selecione o tipo de oferta
           </option>
           <option value="Pago para retirar o item">
@@ -241,10 +242,11 @@ export const formCreateBid = `
           placeholder="Fiquei interessado no produto"
         ></textarea>
       </div>
+    <div class='form__actions'>
       <button type="button" id="submit-bid" class="btn btn-primary">
         Enviar Oferta
       </button>
-
       <button type="button" class="btn btn-danger" id="cancel">Cancelar</button>
+    </div>
     </form>
 `;

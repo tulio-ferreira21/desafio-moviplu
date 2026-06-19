@@ -1,23 +1,23 @@
+import { $ConvertEnumBid } from "../../../data/bids.enum.js";
 import { getCategories } from "../../../services/loadCategories.js";
-import getProductbyId from "../functions/findProductById.js";
-import { createBid } from "./bids/functions/createBid.js";
-import { formBid } from "./bids/functions/formBid.js";
+import { getBidByProductId } from "../functions/getBidsByProductId.js";
+import getProductbyId from "../functions/getProducts.js";
 const containerProducts = document.getElementById("product-body");
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 const titlePage = document.getElementById("title-page");
 const product = await getProductbyId(id);
+const bids = await getBidByProductId(id);
 
 titlePage.textContent = `${product.name} | Trocso`;
 
-const buildPageProduct = async (product) => {
+const buildPageProduct = async (product, bids) => {
   const status = {
     ACTIVE: "Ativo",
     INATIVE: "Inativo",
     CANCELLED: "Cancelado",
     EXPIRED: "Expirado",
   };
-
   const categories = await getCategories();
 
   const categoriesById = Object.fromEntries(
@@ -99,33 +99,16 @@ const buildPageProduct = async (product) => {
             ${new Date(product.createdAt).toLocaleDateString("pt-BR")}
           </small>
         </div>
-
-        <div class="product__actions">
-          <button class="button__trade" id="open-modal-bid">
-            <i class="bi bi-arrow-left-right"></i>
-            Propor troca
-          </button>
-
-          <button class="button__favorite">
-            <i class="bi bi-heart"></i>
-          </button>
-        </div>
-      </div>
     </section>
 
     <section class="product__content">
       <div class="product__card">
+      <h1 class="border-bottom pb-3">Informações do Anúncio</h1>
         <h2>Descrição</h2>
         <p>${product.description}</p>
-      </div>
 
-      <div class="product__card">
         <h2>Localização</h2>
         <p>${product.address}</p>
-      </div>
-
-      <div class="product__card">
-        <h2>Informações do anúncio</h2>
 
         <div class="info__grid">
           <div>
@@ -143,71 +126,49 @@ const buildPageProduct = async (product) => {
             <strong>
               ${new Date(product.dateExpiration).toLocaleDateString("pt-BR")}
             </strong>
-          </div>
         </div>
+      </div>
+    </div>
+      <div class="product__card">
+        <h1 class="border-bottom pb-3">Ofertas enviadas</h1>
+          ${
+            bids.length === 0
+              ? "<p class='text-muted fs-5'>Nenhuma oferta enviada</p>"
+              : bids
+                  .map(
+                    (bid) => `
+      <div class="bid__card">
+  <div class="bid__info">
+    <h3>${bid.user.name}</h3>
+
+    ${
+      bid.user.username
+        ? `<span class="bid__username">@${bid.user.username}</span>`
+        : ""
+    }
+
+    ${bid.message ? `<p class="bid__message">${bid.message}</p>` : ""}
+  </div>
+
+  <div class="bid__meta">
+    <span class="bid__type">${$ConvertEnumBid[bid.type]}: </span>
+
+    ${
+      bid.amount
+        ? `<span class="bid__value">R$ ${bid.amount.toFixed(2)}</span>`
+        : ""
+    }
+  </div>
+   <small class="bid__date">
+      ${new Date(bid.createdAt).toLocaleDateString("pt-BR")}
+    </small>
+</div>
+    `,
+                  )
+                  .join("")
+          }
       </div>
     </section>
   `;
 };
-
-containerProducts.innerHTML = await buildPageProduct(product);
-
-const btnOpenModal = document.getElementById("open-modal-bid");
-btnOpenModal.addEventListener("click", async () => {
-  formBid();
-
-  const type = document.getElementById("bid-type");
-  const message = document.getElementById("message-bid");
-  const amountContainer = document.getElementById("amount-container");
-  const amount = document.getElementById("amount-bid");
-
-  const overlay = document.querySelector(".overlay__bid");
-  const bidForm = document.querySelector(".form__bid");
-  const cancelBid = document.querySelector("#cancel");
-
-  cancelBid.addEventListener("click", () => {
-    overlay.remove();
-    document.body.style.overflow = "auto";
-  });
-  overlay.addEventListener("click", () => {
-    overlay.remove();
-    document.body.style.overflow = "auto";
-  });
-  bidForm.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-  amountContainer.style.display = "none";
-
-  type.addEventListener("change", () => {
-    if (
-      type.value === "Pago para retirar o item" ||
-      type.value === "Cobro para retirar o item"
-    ) {
-      amountContainer.style.display = "flex";
-    } else {
-      amountContainer.style.display = "none";
-    }
-  });
-
-  const btnSubmit = document.getElementById("submit-bid");
-  btnSubmit.addEventListener("click", async (e) => {
-    e.preventDefault();
-    btnSubmit.disabled = true;
-    btnSubmit.style.opacity = 0.5;
-    btnSubmit.textContent = "Enviando...";
-    try {
-      const data = {
-        type: type.value,
-        message: message.value || null,
-        amount: amount.value || null,
-      };
-      await createBid(data, id, overlay);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      btnSubmit.disabled = false;
-      btnSubmit.style.opacity = 1;
-      btnSubmit.textContent = "Enviar Oferta";
-    }
-  });
-});
+containerProducts.innerHTML = await buildPageProduct(product, bids);

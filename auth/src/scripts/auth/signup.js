@@ -45,6 +45,7 @@ async function handleSubmit(formData) {
 
 authSubmit.addEventListener("click", (e) => {
   try {
+    authSubmit.disabled = true
     authSubmit.style.opacity = 0.5;
     authSubmit.textContent = "Entrando...";
     const formData = {
@@ -57,6 +58,8 @@ authSubmit.addEventListener("click", (e) => {
   } catch (error) {
     console.log(error);
   } finally {
-    ((authSubmit.style.opacity = 1), (authSubmit.textContent = "Entrar"));
+    authSubmit.disabled = false
+    authSubmit.style.opacity = 1
+    authSubmit.textContent = "Entrar";
   }
 });
