@@ -1,0 +1,110 @@
+.overlay__bid {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  background: rgba(15, 23, 42, 0.45);
+
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__bid {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 2rem;
+
+  background: white;
+
+  border: 1px solid #ebe7e2;
+
+  border-radius: 2rem;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.form__bid h2 {
+  color: #071133;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  margin-bottom: 0.5rem;
+}
+
+.form__bid > p {
+  color: #6b7280;
+
+  margin-bottom: 2rem;
+}
+
+.field__form,
+.amount {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 1.4rem;
+
+  flex: 1;
+}
+
+.field__form label,
+.amount label {
+  color: #071133;
+
+  font-weight: 600;
+
+  margin-bottom: 0.5rem;
+}
+.amount input,
+.field__form input,
+.field__form textarea,
+.field__form select {
+  border: 1px solid #ebe7e2 !important;
+
+  border-radius: 1rem !important;
+
+  min-height: 56px;
+
+  transition: 0.3s ease;
+}
+
+.field__form textarea {
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+.field__form input:focus,
+.field__form textarea:focus,
+.field__form select:focus {
+  border-color: #8b5cf6 !important;
+
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12) !important;
+}
+.btn-primary {
+  background: #071133 !important;
+
+  margin-right: 0.8rem;
+}
+
+.btn-primary:hover {
+  background: #8b5cf6 !important;
+}
+
+.btn-danger {
+  background: #ef4444 !important;
+}
+
+.btn-danger:hover {
+  background: #dc2626 !important;
+}
+
+.form__bid .btn {
+  min-width: 180px;
+}

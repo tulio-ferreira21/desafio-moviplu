@@ -40,7 +40,10 @@ export default function getLocation() {
       },
       (error) => {
         toast.error("Permissão de localização negada");
-        reject(error);
+        // reject(error);
+        resolve({
+          state: null,
+        });
         return;
       },
     );

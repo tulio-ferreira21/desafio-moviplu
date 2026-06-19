@@ -2,6 +2,7 @@ import { BASE_PATH } from "../../../config/basePath.js";
 import { getCategories } from "../../../services/loadCategories.js";
 
 export async function buildProducts(products) {
+  // MELHORAR O FORMULÀRIO DE ADICIONAR PRODUTO E FAZER COM QUE OS PRODUTOS CARREGUEM MESMO SEM OS USUÁRIOS ESTAREM LOGADOS
   const categories = await getCategories();
 
   const categoriesById = Object.fromEntries(

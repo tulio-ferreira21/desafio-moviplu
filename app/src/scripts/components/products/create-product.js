@@ -19,9 +19,13 @@ if (userAuthenticated) {
       formAddProduct.addEventListener("click", (e) => {
         e.stopPropagation();
       });
-      btnCancel.addEventListener("click", () => overlay.remove());
+      btnCancel.addEventListener("click", () => {
+        overlay.remove();
+        document.body.style.overflow = "auto";
+      });
       overlay.addEventListener("click", () => {
         overlay.remove();
+        document.body.style.overflow = "auto";
       });
 
       const name = document.getElementById("name-product");
@@ -56,9 +60,10 @@ if (userAuthenticated) {
           (c) => `<option value="${c}">${c}</option>`,
         );
       });
-
+      const selectedImages = [];
       images.addEventListener("change", () => {
         for (const file of images.files) {
+          selectedImages.push(file);
           const div = document.createElement("div");
           const img = document.createElement("img");
           const p = document.createElement("p");
@@ -108,10 +113,13 @@ if (userAuthenticated) {
             longitude: coordinates.longitude || null,
             duration: durationAd.value || null,
           };
-
-          const res = await addProduct(data, images.files);
+          // Tive que fazer o array, pois o comportamente normal do navegador é:
+          // Quando você adiciona uma imagem por vez o navegador substitiu a anterior enviando assim somente uma imagem
+          // Ao menos que você escolha várias imagens de uma vez
+          const res = await addProduct(data, selectedImages);
           toast.success(res);
           overlay.remove();
+          document.body.style.overflow = "auto";
         } catch (error) {
           console.error(error);
         } finally {

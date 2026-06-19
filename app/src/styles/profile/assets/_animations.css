@@ -14,10 +14,6 @@
   animation: fadeUp 1s ease;
 }
 
-.profile__banner {
-  animation: pulseGlow 5s infinite ease-in-out;
-}
-
 .profile__avatar {
   animation:
     scaleIn 1s ease,

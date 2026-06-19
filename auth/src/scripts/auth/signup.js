@@ -39,7 +39,7 @@ async function handleSubmit(formData) {
     if (error.response?.data?.message) {
       return toast.error(error.response?.data?.message);
     }
-    toast.error(error.response?.data?.message);
+    toast.error('Erro interno no servidor');
   }
 }
 

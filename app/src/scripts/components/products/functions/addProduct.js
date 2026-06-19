@@ -17,9 +17,13 @@ export async function addProduct(data, files) {
     formData.append("latitude", data.latitude);
     formData.append("duration", data.duration);
     formData.append("categoryId", data.categoryId);
+    console.log(files.length)
     for (const image of files) {
       formData.append("images", image);
+      console.log(image)
     }
+
+    console.log(formData)
     const res = await api.post("/products", formData, {
       headers: {
         Authorization: `Bearer ${token}`,

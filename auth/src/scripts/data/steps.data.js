@@ -82,39 +82,64 @@ export const steps = [
             </div>
           </div>
         </div>
-    <button type="button" class="form__button" id="finish_profile">Finalizar perfil</button>
+        <button type="button" class="form__button" id="btn_address">Continuar</button>
 
 
     `,
-  //   `
-  //           <div class="form__header">
-  //           <h2>O que você gosta?</h2>
+  `
+            <div class="form__header">
+            <h2>O que você gosta?</h2>
 
-  //           <p>Escolha algumas categorias para personalizar sua experiência.</p>
-  //         </div>
+            <p>Escolha algumas categorias para personalizar sua experiência.</p>
+          </div>
 
-  //         <div class="form__fields">
-  //           <div class="categories__selector">
-  //             <button type="button" class="category__chip">Eletrônicos</button>
+     <div class="categories__selector" id="container-categories">
+        <label class="category__chip">
+          <input type="checkbox" value="eletronicos">
+          <span>Eletrônicos</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Casa</button>
+        <label class="category__chip">
+          <input type="checkbox" value="casa">
+          <span>Casa</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Decoração</button>
+        <label class="category__chip">
+          <input type="checkbox" value="decoracao">
+          <span>Decoração</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Livros</button>
+        <label class="category__chip">
+          <input type="checkbox" value="livros">
+          <span>Livros</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Games</button>
+        <label class="category__chip">
+          <input type="checkbox" value="games">
+          <span>Games</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Moda</button>
+        <label class="category__chip">
+          <input type="checkbox" value="moda">
+          <span>Moda</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Esportes</button>
+        <label class="category__chip">
+          <input type="checkbox" value="esportes">
+          <span>Esportes</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Música</button>
+        <label class="category__chip">
+          <input type="checkbox" value="musica">
+          <span>Música</span>
+        </label>
 
-  //             <button type="button" class="category__chip">Tecnologia</button>
-  //           </div>
-  //         </div>
+        <label class="category__chip">
+          <input type="checkbox" value="tecnologia">
+          <span>Tecnologia</span>
+        </label>
+</div>
 
-  //         <button type="button" class="form__button" id="finish_profile">Finalizar perfil</button>
-  //     `,
+          <button type="button" class="form__button" id="finish_profile">Finalizar perfil</button>
+      `,
 ];

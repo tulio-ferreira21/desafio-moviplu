@@ -1,3 +1,6 @@
+.form__bid {
+  animation: scaleIn 0.6s ease forwards;
+}
 .link__back {
   animation: fadeRight 0.8s ease;
 }

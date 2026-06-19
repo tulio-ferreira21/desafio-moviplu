@@ -1,9 +1,7 @@
 @import "../global/globals.css";
 @import "../global/globalAnimations.css";
 @import "../explore/assets/_topbar.css";
-
 @import "./assets/_animations.css";
-
 .search {
   min-height: 100vh;
 

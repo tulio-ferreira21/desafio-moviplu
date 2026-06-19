@@ -2,6 +2,7 @@
 @import "../../global/globals.css";
 @import "./assets/_animations.css";
 @import "./assets/_product_content.css";
+@import "./assets/_form_bid.css";
 @import "./assets/_responsivity.css";
 .link__back {
   position: relative;
@@ -32,3 +33,8 @@
   background: #f6f4f1;
 }
 
+@media (max-width: 480px) {
+  .product {
+    padding: 0;
+  }
+}

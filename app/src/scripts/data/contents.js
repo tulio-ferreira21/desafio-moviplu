@@ -201,3 +201,50 @@ export const formAddProductContent = `
 
 </form>
 `;
+
+export const formCreateBid = `
+    <form class="form__bid">
+      <h2>Fazer Oferta</h2>
+      <div class="field__form">
+        <label class="form-label">Tipo de Oferta</label>
+        <select name="tipo de oferta" id="bid-type" class="form-control">
+          <option value="null" selected disabled>
+            Selecione o tipo de oferta
+          </option>
+          <option value="Pago para retirar o item">
+            <b>PAGO</b> para retirar o item
+          </option>
+          <option value="Retiro o item gratuitamente">
+            Retiro o item gratuitamente
+          </option>
+          <option value="Cobro para retirar o item">
+            <b>COBRO</b> para retirar o item
+          </option>
+        </select>
+        <div class="amount" id="amount-container">
+          <label for="amount" class="form-label">Informe o valor(Em R$)</label>
+          <input
+            type="number"
+            inputmode="numeric"
+            class="form-control"
+            placeholder="R$ 00,00"
+            id="amount-bid"
+          />
+        </div>
+      </div>
+      <div class="field__form">
+        <label for="message" class="form-label">Mensagem(Opcional)</label>
+        <textarea
+          name="message"
+          id="message-bid"
+          class="form-control"
+          placeholder="Fiquei interessado no produto"
+        ></textarea>
+      </div>
+      <button type="button" id="submit-bid" class="btn btn-primary">
+        Enviar Oferta
+      </button>
+
+      <button type="button" class="btn btn-danger" id="cancel">Cancelar</button>
+    </form>
+`;

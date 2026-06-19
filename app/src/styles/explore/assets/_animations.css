@@ -22,13 +22,7 @@
   animation-delay: 0.4s;
 }
 
-.hero__primary {
-  animation: pulseButton 4s infinite ease-in-out;
-}
 
-.hero__secondary {
-  animation: floatingSoft 5s infinite ease-in-out;
-}
 
 .hero__right {
   opacity: 0;
@@ -78,10 +72,6 @@
   animation-delay: 1.4s;
 }
 
-.cta button {
-  animation: pulseButton 4s infinite ease-in-out;
-}
-
 
 .sidebar {
   opacity: 0;
@@ -91,11 +81,6 @@
 
 .sidebar__logo {
   animation: fadeUp 1s ease;
-}
-
-.sidebar__logo img {
-  animation:
-    pulseGlow 6s infinite ease-in-out;
 }
 
 .sidebar__nav {

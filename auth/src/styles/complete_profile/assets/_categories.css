@@ -1,4 +1,3 @@
-
 .categories__selector {
   display: flex;
   flex-wrap: wrap;
@@ -6,6 +5,16 @@
 }
 
 .category__chip {
+  cursor: pointer;
+}
+
+.category__chip input {
+  display: none;
+}
+
+.category__chip span {
+  display: inline-block;
+
   padding: 0.9rem 1.3rem;
 
   border: 1px solid #ebe7e2;
@@ -19,13 +28,13 @@
   transition: 0.25s ease;
 }
 
-.category__chip:hover {
+.category__chip:hover span {
   border-color: #8b5cf6;
 
   color: #8b5cf6;
 }
 
-.category__chip.active {
+.category__chip input:checked + span {
   background: linear-gradient(90deg, #8b5cf6, #b56cff);
 
   color: white;

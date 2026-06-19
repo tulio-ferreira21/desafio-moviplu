@@ -1,8 +1,157 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
+}
+
+.footer {
+  margin-top: 4rem;
+
+  background: #8b5cf6;;
+
+  border-top: 1px solid #ebe7e2;
+
+  padding: 4rem 4rem 2rem;
+  color: white;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+
+  margin-bottom: 3rem;
+}
+
+.footer__brand {
+  max-width: 420px;
+}
+
+.footer__brand img {
+  width: 60px;
+
+  margin-bottom: 1rem;
+}
+
+.footer__brand h2 {
+  color: #f6f4f1;
+
+  font-weight: 800;
+
+  margin-bottom: 1rem;
+}
+
+.footer__brand p {
+  color: #cecfd1;
+
+  line-height: 30px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 5rem;
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.footer__column h4 {
+  color: #ebe7e2;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  margin-bottom: 0.5rem;
+}
+
+.footer__column a {
+  color: #cecfd1;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer__column a:hover {
+  color: #000000;
+}
+
+.footer__bottom {
+  padding-top: 2rem;
+
+  border-top: 1px solid #ebe7e2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__bottom span {
+  color: #ebe7e2;
+
+  font-size: 0.95rem;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer__social a {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 1rem;
+
+  background: #f6f4f1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #071133;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer__social a:hover {
+  background: #8b5cf6;
+
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .footer__top {
+    flex-direction: column;
+  }
+
+  .footer__links {
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

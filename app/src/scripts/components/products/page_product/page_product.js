@@ -1,12 +1,15 @@
-import { getCategories } from "../../services/loadCategories.js";
-import getProductbyId from "./functions/findProductById.js";
-
+import { getCategories } from "../../../services/loadCategories.js";
+import getProductbyId from "../functions/findProductById.js";
+import { createBid } from "./bids/functions/createBid.js";
+import { formBid } from "./bids/functions/formBid.js";
 const containerProducts = document.getElementById("product-body");
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-
+const titlePage = document.getElementById("title-page");
 const product = await getProductbyId(id);
+
+titlePage.textContent = `${product.name} | Trocso`;
 
 const buildPageProduct = async (product) => {
   const status = {
@@ -19,7 +22,7 @@ const buildPageProduct = async (product) => {
   const categories = await getCategories();
 
   const categoriesById = Object.fromEntries(
-    Object.values(categories).map((category) => [category.id, category])
+    Object.values(categories).map((category) => [category.id, category]),
   );
 
   const carouselItems = (product.imagesUrl || [])
@@ -32,7 +35,7 @@ const buildPageProduct = async (product) => {
             alt="${product.name}"
           />
         </div>
-      `
+      `,
     )
     .join("");
 
@@ -99,7 +102,7 @@ const buildPageProduct = async (product) => {
         </div>
 
         <div class="product__actions">
-          <button class="button__trade">
+          <button class="button__trade" id="open-modal-bid">
             <i class="bi bi-arrow-left-right"></i>
             Propor troca
           </button>
@@ -149,3 +152,52 @@ const buildPageProduct = async (product) => {
 };
 
 containerProducts.innerHTML = await buildPageProduct(product);
+
+const btnOpenModal = document.getElementById("open-modal-bid");
+btnOpenModal.addEventListener("click", async () => {
+  formBid();
+
+  const type = document.getElementById("bid-type");
+  const message = document.getElementById("message-bid");
+  const amountContainer = document.getElementById("amount-container");
+  const amount = document.getElementById("amount-bid");
+
+  const overlay = document.querySelector(".overlay__bid");
+  const bidForm = document.querySelector(".form__bid");
+  const cancelBid = document.querySelector("#cancel");
+
+  cancelBid.addEventListener("click", () => {
+    overlay.remove();
+    document.body.style.overflow = "auto";
+  });
+  overlay.addEventListener("click", () => {
+    overlay.remove();
+    document.body.style.overflow = "auto";
+  });
+  bidForm.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+  amountContainer.style.display = "none";
+
+  type.addEventListener("change", () => {
+    if (
+      type.value === "Pago para retirar o item" ||
+      type.value === "Cobro para retirar o item"
+    ) {
+      amountContainer.style.display = "flex";
+    } else {
+      amountContainer.style.display = "none";
+    }
+  });
+
+  const btnSubmit = document.getElementById("submit-id");
+  btnSubmit.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const data = {
+      type: type.value,
+      message: message.value || null,
+      amount: amount.value || null,
+    };
+    const res = await createBid(data, product.id);
+  });
+});

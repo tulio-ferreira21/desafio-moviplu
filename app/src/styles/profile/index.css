@@ -20,7 +20,7 @@
 
   --shadow: 0 10px 40px rgba(17, 24, 39, 0.04);
 }
-.settings__body,    
+.settings__body,
 body {
   background: var(--background);
 
@@ -42,7 +42,7 @@ a {
 }
 
 .settings__body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 .settings,
 .profile {
