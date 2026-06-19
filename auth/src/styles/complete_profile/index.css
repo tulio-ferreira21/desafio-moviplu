@@ -4,9 +4,7 @@
 @import "./assets/_categories.css";
 @import "./assets/_form.css";
 
-body{
-  overflow: hidden;
-}
+body{}
 .complete__profile__content {
   min-height: 100dvh;
   display: flex;
