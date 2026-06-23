@@ -6,9 +6,10 @@ import { getDataAddress } from "./getDataAddress.js";
 
 const appUrl = "https://trocso-platform.vercel.app";
 const formContainer = document.getElementById("form__content");
-
+// const usernameLocale = localStorage.getItem("username")
+// const cityLocale = localStorage.getItem ("city")
+// const stateLocale = localStorage.getItem("state")
 const position_step = Number(localStorage.getItem("position_step"));
-
 let stepPosition = position_step > 3 || position_step < 0 ? 0 : position_step;
 
 const token = localStorage.getItem("access_token");
@@ -161,7 +162,6 @@ async function loadCategoriesStep() {
       );
 
       localStorage.removeItem("position_step");
-
       window.location.href = `${appUrl}/src/auth/auth.html?tk=${encodeURIComponent(token)}`;
     } catch (error) {
       if (error.response?.data?.message) {

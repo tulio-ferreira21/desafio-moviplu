@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="../../styles/notifications/index.css" />
+    <title>Notificações | Trocso</title>
+
+    <link rel="shortcut icon" href="../../medias/imgs/logo-trocso.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+  </head>
+  <body class="notifications">
+    <header style="padding: 1rem">
+      <a href="#" onclick="window.history.back()" class="link__back">
+        <i class="bi bi-arrow-left"></i>
+        Voltar
+      </a>
+    </header>
+    <main class="notifications__content">
+      <section class="notifications__hero">
+        <div class="notifications__hero__content">
+          <span class="hero__badge">
+            <i class="bi bi-bell"></i>
+            Central de notificações
+          </span>
+
+          <h1>
+            Suas
+            <span>Notificações</span>
+          </h1>
+
+          <p>
+            Acompanhe atualizações dos seus anúncios, propostas recebidas e
+            novidades importantes da plataforma.
+          </p>
+        </div>
+      </section>
+
+      <section class="notifications__header">
+        <h2>Notificações</h2>
+      </section>
+
+      <section class="notifications__list" id="container-notifications">
+        <p class="text-muted">Nenhuma notificação por enquanto</p>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="../../scripts/components/notifications/load_notifications.js"
+    ></script>
+  </body>
+</html>

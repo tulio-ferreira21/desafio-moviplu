@@ -1,4 +1,5 @@
 import { verifyIsAuth } from "../../services/auth.js";
+import { formatTimeAgo } from "../../services/formatTimeAgo.js";
 import toast from "../../services/toasts.js";
 import { contentEditProfile, handleEditProfile } from "./edit_profile.js";
 
@@ -46,7 +47,12 @@ const contentProfile = `
 
                 <div class="profile__info">
                   <h3>Membro desde</h3>
-                  <strong>${userAuthenticated?.created_at}</strong>
+                  <strong>${formatTimeAgo(userAuthenticated.createdAt)}</strong>
+                </div>
+
+                <div class="profile__info">
+                  <h3>Categorias Favoritas</h3>
+                  ${userAuthenticated.favoriteCategories.map((category) => `<strong>${category.name}</strong>`).join(" | ")}
                 </div>
               </div>
             </div>
@@ -57,7 +63,10 @@ if (userAuthenticated) {
   profileContent.innerHTML = contentProfile;
 
   buttonEdit.addEventListener("click", async () => {
-    profileContent.innerHTML = await contentEditProfile(userAuthenticated, addressUser);
+    profileContent.innerHTML = await contentEditProfile(
+      userAuthenticated,
+      addressUser,
+    );
 
     const cancelEdit = document.getElementById("cancel-edit");
     const saveEdit = document.getElementById("save-edit");

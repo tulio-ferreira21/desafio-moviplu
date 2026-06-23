@@ -1,7 +1,10 @@
+import { $ConvertEnumBid } from "../../../data/bids.enum.js";
 import { getCategories } from "../../../services/loadCategories.js";
 import getProductbyId from "../functions/findProductById.js";
 import { createBid } from "./bids/functions/createBid.js";
 import { formBid } from "./bids/functions/formBid.js";
+import { verifyIfAlreadyBid } from "./bids/functions/verifyIfAlreadyBid.js";
+import { cancelBid } from "./bids/functions/cancelBid.js";
 const containerProducts = document.getElementById("product-body");
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -100,13 +103,13 @@ const buildPageProduct = async (product) => {
           </small>
         </div>
 
-        <div class="product__actions">
+        <div class="product__actions" id='product__actions'>
           <button class="button__trade" id="open-modal-bid">
             <i class="bi bi-arrow-left-right"></i>
-            Propor troca
+            Propor oferta
           </button>
 
-          <button class="button__favorite">
+          <button class="button__favorite" id="button__favorite">
             <i class="bi bi-heart"></i>
           </button>
         </div>
@@ -153,61 +156,141 @@ const buildPageProduct = async (product) => {
 containerProducts.innerHTML = await buildPageProduct(product);
 
 const btnOpenModal = document.getElementById("open-modal-bid");
-btnOpenModal.addEventListener("click", async () => {
-  formBid();
+btnOpenModal.style.opacity = 0.5;
+btnOpenModal.textContent = "Carregando...";
+const verifyIfBidAlreadyExists = await verifyIfAlreadyBid(id);
+if (verifyIfBidAlreadyExists) {
+  const containerActions = document.getElementById("product__actions");
 
-  const type = document.getElementById("bid-type");
-  const message = document.getElementById("message-bid");
-  const amountContainer = document.getElementById("amount-container");
-  const amount = document.getElementById("amount-bid");
+  containerActions.style.flexDirection = "column";
+  containerActions.innerHTML = `
+      <div class="bid__found">
+  <div class="bid__found__icon">
+    <i class="bi bi-check-circle-fill"></i>
+  </div>
 
-  const overlay = document.querySelector(".overlay__bid");
-  const bidForm = document.querySelector(".form__bid");
-  const cancelBid = document.querySelector("#cancel");
+  <div class="bid__found__content">
+    <h3>Você já enviou uma oferta</h3>
 
-  cancelBid.addEventListener("click", () => {
-    overlay.remove();
-    document.body.style.overflow = "auto";
-  });
-  overlay.addEventListener("click", () => {
-    overlay.remove();
-    document.body.style.overflow = "auto";
-  });
-  bidForm.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-  amountContainer.style.display = "none";
+    <div class="bid__found__tags">
+      <span class="bid__tag bid__tag--type">
+        ${$ConvertEnumBid[verifyIfBidAlreadyExists.type]}
+      </span>
 
-  type.addEventListener("change", () => {
-    if (
-      type.value === "Pago para retirar o item" ||
-      type.value === "Cobro para retirar o item"
-    ) {
-      amountContainer.style.display = "flex";
-    } else {
-      amountContainer.style.display = "none";
+      ${
+        verifyIfBidAlreadyExists.amount
+          ? `
+            <span class="bid__tag bid__tag--amount">
+              R$ ${verifyIfBidAlreadyExists.amount.toFixed(2)}
+            </span>
+          `
+          : ""
+      }
+    </div>
+
+    ${
+      verifyIfBidAlreadyExists.message
+        ? `
+          <p class="bid__found__message">
+            ${verifyIfBidAlreadyExists.message}
+          </p>
+        `
+        : ""
     }
-  });
+  </div>
+</div>
 
-  const btnSubmit = document.getElementById("submit-bid");
-  btnSubmit.addEventListener("click", async (e) => {
-    e.preventDefault();
-    btnSubmit.disabled = true;
-    btnSubmit.style.opacity = 0.5;
-    btnSubmit.textContent = "Enviando...";
+<button
+  type="button"
+  class="btn btn-danger bid__cancel"
+  id="cancel__bid"
+>
+  Cancelar Oferta
+</button>
+
+  `;
+
+  const btnCancelBid = document.getElementById("cancel__bid");
+
+  btnCancelBid.addEventListener("click", async () => {
+    btnCancelBid.textContent = "Cancelando...";
+    btnCancelBid.opacity = "0.6";
     try {
-      const data = {
-        type: type.value,
-        message: message.value || null,
-        amount: amount.value || null,
-      };
-      await createBid(data, id, overlay);
+      await cancelBid(verifyIfBidAlreadyExists.id);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1200);
     } catch (error) {
-      console.log(error);
     } finally {
-      btnSubmit.disabled = false;
-      btnSubmit.style.opacity = 1;
-      btnSubmit.textContent = "Enviar Oferta";
+      btnCancelBid.textContent = "Cancelar Oferta";
+      btnCancelBid.opacity = "1";
     }
   });
-});
+} else {
+  btnOpenModal.style.opacity = 1;
+
+  btnOpenModal.innerHTML = `
+    <i class="bi bi-arrow-left-right"></i>
+    Propor oferta
+  `;
+}
+if (!verifyIfBidAlreadyExists) {
+  btnOpenModal.addEventListener("click", async () => {
+    formBid();
+
+    const type = document.getElementById("bid-type");
+    const message = document.getElementById("message-bid");
+    const amountContainer = document.getElementById("amount-container");
+    const amount = document.getElementById("amount-bid");
+
+    const overlay = document.querySelector(".overlay__bid");
+    const bidForm = document.querySelector(".form__bid");
+    const cancelBid = document.querySelector("#cancel");
+
+    cancelBid.addEventListener("click", () => {
+      overlay.remove();
+      document.body.style.overflow = "auto";
+    });
+    overlay.addEventListener("click", () => {
+      overlay.remove();
+      document.body.style.overflow = "auto";
+    });
+    bidForm.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+    amountContainer.style.display = "none";
+
+    type.addEventListener("change", () => {
+      if (
+        type.value === "Pago para retirar o item" ||
+        type.value === "Cobro para retirar o item"
+      ) {
+        amountContainer.style.display = "flex";
+      } else {
+        amountContainer.style.display = "none";
+      }
+    });
+
+    const btnSubmit = document.getElementById("submit-bid");
+    btnSubmit.addEventListener("click", async (e) => {
+      e.preventDefault();
+      btnSubmit.disabled = true;
+      btnSubmit.style.opacity = 0.5;
+      btnSubmit.textContent = "Enviando...";
+      try {
+        const data = {
+          type: type.value,
+          message: message.value || null,
+          amount: amount.value || null,
+        };
+        await createBid(data, id, overlay);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        btnSubmit.disabled = false;
+        btnSubmit.style.opacity = 1;
+        btnSubmit.textContent = "Enviar Oferta";
+      }
+    });
+  });
+}

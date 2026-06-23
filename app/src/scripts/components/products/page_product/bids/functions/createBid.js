@@ -52,7 +52,7 @@ export async function createBid(params, productId, container) {
   } catch (error) {
     if (error.response?.data?.message) {
       if (error.response?.data?.message === "Token inválido") {
-        // return (window.location.href = "https://auth-trocso.vercel.app");
+        return (window.location.href = "https://auth-trocso.vercel.app");
       }
       return toast.error(error.response?.data?.message);
     }

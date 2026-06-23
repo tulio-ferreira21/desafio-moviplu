@@ -1,129 +1,389 @@
-# Desafio - MoviPlu Talent
+# Trocso
 
-1 - Stacks Obrigatórias:
+<div align="center">
 
-- HTML
-- CSS
-- JS
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-8B5CF6?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)
+![NestJS](https://img.shields.io/badge/NestJS-Backend-E0234E?style=flat-square\&logo=nestjs)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-316192?style=flat-square\&logo=postgresql)
+![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square\&logo=prisma)
+</div>
 
-2
+---
 
-- Um aplicativo tipo um OLX da vida
-- Nele um usuário poderá cadastrar-se e cadastrar itens que ele não precisa mais e deseja se livrar
-- Outros usuários verão as ofertas e demonstrarão seu interesse de 3 formas:
+# 1. Introdução
 
-1. Tenho interesse e PAGO x reais para retirar no local
-2. Tenho interesse em retirar no local, mas não pago nada
-3. Tenho interesse e COBRO x reais para retirar do local
+## 1.1 Objetivo
 
-Features Obrigatórias:
+O Trocso é uma plataforma web voltada para a troca de produtos entre usuários.
 
-- O usuário cadastrar quantos itens desejar no sistema.
-- O usuário poder cancelar a oferta de um item.
-- O usuário pesquisar por itens e categorias de seu interesse.
-- O usuário poder dar lances em itens cadastrados.
-- O cadastro de um item ter duração máxima de 30 dias, sendo que o usuário que está cadastrando poderá escolher a duração com valores entre 24 horas, 1 semana, 15 dias , 1 mês. (Ex: Luiz tem 200 telhas pra vender e coloca a oferta por 15 dias, após esse tempo, será apagado ou finalizado com algum comprador)
+O sistema permite que usuários publiquem anúncios, recebam propostas de troca e gerenciem negociações através de uma interface moderna e intuitiva.
 
-- Terminar o prazo, deverá ser notificado ao primeiro colocado e ao dono do item qual foi a oferta vencedora e se ambos estão de acordo com os termos. Estando tudo certo o item deverá ser marcado como negociado e deverá ser bloqueado para novas negociações.
+---
 
-- Não havendo acordo o item será marcado como cancelado e como sem acordo.
+# 2. Problema
 
-# Features
+Muitos usuários possuem objetos sem utilização que ainda possuem valor para outras pessoas.
+Atualmente, a maioria das plataformas é voltada para compra e venda, tornando o processo de troca menos eficiente.
+O Trocso busca solucionar esse problema através de um marketplace focado exclusivamente em ofertas e trocas.
 
-- Cadastro de itens -> Nome, Descrição, Fotos, Categoria, Status de venda, Endereço de retirada (Colocar o leaflet para ver a exata localização) e Tempo de expiração da oferta
-- Usuário poder criar lances, editar lances e retirar lances
-- Criar notificações para que quando um item de uma Categoria favoritada pelo usuário for adicionado
+---
 
-- Diferenciais:
-  -> Chat de bate papo
-  -> Badges de "Negociado", "Novo"
-  -> Mapear pela localização, primeiramente
-  -> Retirar lance e editar lance
-  -> Denúncias -> Golpe, produto malicioso e etc
+# 3. Escopo do Sistema
 
-# MVP:
+O sistema contempla:
 
--> Tela de cadastro e/ou login -> Dialogs de Explicação de como a plataforma funciona e Escolha de categorias favoritas, porém, para a navegação não será necessáriio a autenticação
+* Cadastro de usuários
+* Login
+* Completar perfil
+* Cadastro de anúncios
+* Busca de produtos
+* Sistema de propostas
+* Notificações
+* Gerenciamento de anúncios
+* Perfil de usuário
 
-Bibliotecas em que eu posso usar essa demonstração de uso da Plataforma:
+---
 
-- DriverJS -> Para guias
-- Leaflet -> Para mapas
--
+# 4. Arquitetura
 
-Entidades:
+## Frontend
 
-Usuário
+Responsável por:
 
-- id
-- nome
-- nomeDePerfil
-- email
-- senha
-- fotoPerfil
-- categoriasFavoritas[] -> CategoriaFavoritas[]
-- endereço
-- criadoEm
+* Interface do usuário
+* Consumo da API
+* Gerenciamento de sessão
+* Navegação
 
-CategoriaFavorita
-- id
-- usuarioId
-- categoria
+Tecnologias:
 
-Produto
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap
+* Axios
 
-- id
-- titulo
-- descricao
-- fotos[]
-- categoria
-- enderecoRetirada
-- latitude
-- longitude
-- duracaoOferta
-- dataExpiracao
-- anuncianteId
-- criadoEm
-- status:
-  - ativo
-  - negociado
-  - cancelado
-  - sem_acordo
-  - expirado
+---
 
-Lance
+## Backend
 
-- id
-- produtoId
-- usuarioId
-- valor
-- mensagem
-- criadoEm
-  -tipo:
-    - pagar_para_retirar
-    - retirar_gratis
-    - cobrar_para_retirar
+Responsável por:
 
-Chat
-- id
-- produtoId
-- participante1Id
-- participante2Id
-- criadoEm
-- mensagens[] -> Mensagem[]
+* Regras de negócio
+* Autenticação
+* Persistência de dados
+* Upload de imagens
+* Notificações
 
+Tecnologias:
 
-Mensagem
-- id
-- chatId
-- remetenteId
-- conteudo
-- criadoEm
+* Node.js
+* NestJS
+* Prisma ORM
 
-Denuncia
-- id
-- produtoId
-- usuarioId
-- motivo
-- descricao
-- criadoEm
+---
+
+## Banco de Dados
+
+Tecnologia:
+
+* PostgreSQL
+
+ORM:
+
+* Prisma
+
+---
+
+## Armazenamento
+
+Tecnologia:
+
+* Supabase Storage
+
+Responsável por:
+
+* Imagens dos anúncios
+* Imagens de perfil
+
+---
+
+# 5. Módulos do Sistema
+
+## 5.1 Autenticação
+
+### Funcionalidades
+
+* Cadastro
+* Login
+* Logout
+* Refresh Token
+* Proteção de rotas
+
+### Entidades
+
+User
+
+---
+
+## 5.2 Perfil
+
+### Funcionalidades
+
+* Completar perfil
+* Alterar dados
+* Definir categorias favoritas
+
+### Campos
+
+| Campo              | Tipo   |
+| ------------------ | ------ |
+| username           | string |
+| city               | string |
+| state              | string |
+| favoriteCategories | array  |
+
+---
+
+## 5.3 Produtos
+
+### Funcionalidades
+
+* Criar produto
+* Editar produto
+* Excluir produto
+* Renovar produto
+
+### Campos
+
+| Campo        | Tipo    |
+| ------------ | ------- |
+| id           | UUID    |
+| name         | string  |
+| description  | string  |
+| categoryId   | UUID    |
+| advertiserId | UUID    |
+| address      | string  |
+| latitude     | decimal |
+| longitude    | decimal |
+
+---
+
+## 5.4 Explorar Produtos
+
+Permite:
+
+* Pesquisa por nome
+* Pesquisa por categoria
+* Visualização dos anúncios
+
+---
+
+## 5.5 Propostas
+
+### Fluxo
+
+1. Usuário visualiza anúncio
+2. Usuário envia proposta
+3. Anunciante recebe notificação
+4. Anunciante aceita ou recusa
+
+### Estados
+
+* PENDING
+* ACCEPTED
+* REJECTED
+
+---
+
+## 5.6 Favoritos
+
+Permite:
+
+* Adicionar favoritos
+* Remover favoritos
+* Listar favoritos
+
+---
+
+## 5.7 Notificações
+
+### Eventos
+
+* Nova proposta
+* Proposta aceita
+* Proposta recusada
+* Atualizações do sistema
+
+### Estrutura
+
+```ts
+Notification {
+  id: string
+  title: string
+  message: string
+  read: boolean
+  userId: string
+  productId: string
+}
+```
+
+---
+
+# 6. Fluxos de Usuário
+
+## Fluxo de Cadastro
+
+```text
+Cadastro
+    ↓
+Login
+    ↓
+Completar Perfil
+    ↓
+Explorar Produtos
+```
+
+---
+
+## Fluxo de Anúncio
+
+```text
+Criar Anúncio
+    ↓
+Publicar
+    ↓
+Receber Propostas
+    ↓
+Aceitar ou Recusar
+```
+
+---
+
+## Fluxo de Troca
+
+```text
+Usuário A publica anúncio
+           ↓
+Usuário B envia proposta
+           ↓
+Usuário A analisa
+           ↓
+Aceita ou Recusa
+```
+
+---
+
+# 7. Estrutura de Banco de Dados
+
+## Entidades Principais
+
+* User
+* Product
+* Category
+* Favorite
+* Bid
+* Notification
+
+Relacionamentos:
+
+```text
+User
+ ├── Products
+ ├── Favorites
+ ├── Notifications
+ └── Bids
+
+Product
+ ├── Category
+ ├── Advertiser
+ ├── Notifications
+ └── Bids
+```
+
+---
+
+# 8. Interface do Usuário
+
+## Páginas
+
+### Landing Page
+
+Objetivo:
+
+Apresentação da plataforma.
+
+---
+
+### Explore
+
+Objetivo:
+
+Listagem de produtos.
+
+---
+
+### Produto
+
+Objetivo:
+
+Exibir detalhes do anúncio.
+
+---
+
+### Meus Anúncios
+
+Objetivo:
+
+Gerenciamento de anúncios.
+
+---
+
+### Notificações
+
+Objetivo:
+
+Central de notificações.
+
+---
+
+### Perfil
+
+Objetivo:
+
+Gerenciamento do usuário.
+
+---
+
+# 9. Requisitos Não Funcionais
+
+* Interface responsiva
+* Tempo de resposta inferior a 2 segundos
+* Compatibilidade com dispositivos móveis
+* Segurança baseada em JWT
+* Upload seguro de imagens
+
+---
+
+# 10. Roadmap
+
+## Fase Atual
+
+* Sistema de anúncios
+* Sistema de propostas
+* Sistema de notificações
+
+## Próximas Funcionalidades
+
+* Chat em tempo real
+* Sistema de avaliações
+* Dashboard administrativo
+* Aplicativo mobile
+
+---
+
+# 11. Autor
+
+&copy; Túlio Diego Ferreira
+Projeto e portfólio de desenvolvimento Full Stack.

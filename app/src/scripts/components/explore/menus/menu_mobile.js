@@ -1,15 +1,17 @@
 import { BASE_PATH } from "../../../config/basePath.js";
 import { verifyIsAuth } from "../../../services/auth.js";
-
+const spaceMobile = document.querySelector(".spacer__mobile");
 const menuMobile = document.getElementById("menu__mobile");
 const user = await verifyIsAuth();
-
+spaceMobile.style.display = "none";
 if (user) {
+  if(window.screen.width <= 700) {
+    spaceMobile.style.display = "flex"
+  }
   const pathname = window.location.pathname;
 
   const isExplore =
-    pathname === `${BASE_PATH}/` ||
-    pathname === `${BASE_PATH}/index.html`;
+    pathname === `${BASE_PATH}/` || pathname === `${BASE_PATH}/index.html`;
 
   const isMyAds = pathname.includes("/my-ads/");
   const isFavorites = pathname.includes("/favorites/");

@@ -1,5 +1,7 @@
+import api from "../../../api/api.service.js";
 import { $ConvertEnumBid } from "../../../data/bids.enum.js";
 import { getCategories } from "../../../services/loadCategories.js";
+import toast from "../../../services/toasts.js";
 import { getBidByProductId } from "../functions/getBidsByProductId.js";
 import getProductbyId from "../functions/getProducts.js";
 const containerProducts = document.getElementById("product-body");
@@ -131,13 +133,10 @@ const buildPageProduct = async (product, bids) => {
     </div>
       <div class="product__card">
         <h1 class="border-bottom pb-3">Ofertas enviadas</h1>
-          ${
-            bids.length === 0
-              ? "<p class='text-muted fs-5'>Nenhuma oferta enviada</p>"
-              : bids
-                  .map(
-                    (bid) => `
-      <div class="bid__card">
+         ${bids
+           .map(
+             (bid) => `
+<div class="bid__card">
   <div class="bid__info">
     <h3>${bid.user.name}</h3>
 
@@ -151,7 +150,7 @@ const buildPageProduct = async (product, bids) => {
   </div>
 
   <div class="bid__meta">
-    <span class="bid__type">${$ConvertEnumBid[bid.type]}: </span>
+    <span class="bid__type">${$ConvertEnumBid[bid.type]}:</span>
 
     ${
       bid.amount
@@ -159,16 +158,60 @@ const buildPageProduct = async (product, bids) => {
         : ""
     }
   </div>
-   <small class="bid__date">
-      ${new Date(bid.createdAt).toLocaleDateString("pt-BR")}
-    </small>
+
+  <small class="bid__date">
+    ${new Date(bid.createdAt).toLocaleDateString("pt-BR")}
+  </small>
+    ${
+      bid.accepted
+        ? bid.accepted
+          ? "<p class='bg-success-subtle p-2 text-success fs-6 rounded-5'>Oferta Aceita</p>"
+          : "<p class='bg-danger-subtle p-2 text-danger fs-6 rounded-5'>Oferta Recusada</p>"
+        : ` <div class="bid__actions">
+    <button
+      class="btn btn-success accept-bid"
+      data-bid-id="${bid.id}"
+      data-owner="${bid.userId}"
+      data-product-id="${product.id}"
+    >
+      Aceitar oferta
+    </button>
+  </div>`
+    }
 </div>
-    `,
-                  )
-                  .join("")
-          }
+`,
+           )
+           .join("")}
       </div>
     </section>
   `;
 };
 containerProducts.innerHTML = await buildPageProduct(product, bids);
+
+document.querySelectorAll(".accept-bid").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const bidId = button.dataset.bidId;
+    const ownerBidId = button.dataset.owner;
+    const productId = button.dataset.productId;
+    const confirmAccept = confirm("Deseja realmente aceitar esta oferta?");
+
+    if (!confirmAccept) return;
+
+    try {
+      const res = await api.patch(
+        `/bid/accept`,
+        { productId, bidId, ownerBidId },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        },
+      );
+      toast.success(res.data?.message);
+    } catch (error) {
+      console.error(error);
+      console.log(error.response?.data?.message);
+      toast.error("Erro ao aceitar oferta.");
+    }
+  });
+});

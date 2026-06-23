@@ -1,0 +1,323 @@
+@import "../global/globalAnimations.css";
+@import "../global/globals.css";
+.link__back {
+  position: relative;
+  text-decoration: none;
+  color: #8b5cf6;
+}
+.link__back::before {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #8b5cf6;
+  box-shadow: 0px 0px 20px #8b5cf6;
+
+  transition: 0.3s;
+}
+
+.link__back:hover::before {
+  width: 100%;
+}
+
+.notifications {
+  min-height: 100vh;
+
+  background: #f6f4f1;
+
+  padding: 2rem;
+}
+
+.notifications__content {
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+.notifications__hero {
+  padding: 3rem;
+
+  border-radius: 2rem;
+
+  margin-bottom: 2rem;
+
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.08),
+    rgba(15, 185, 173, 0.08)
+  );
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 999px;
+
+  background: white;
+
+  border: 1px solid #ebe7e2;
+
+  color: #8b5cf6;
+
+  font-weight: 600;
+
+  margin-bottom: 1rem;
+}
+
+.notifications__hero h1 {
+  font-size: 4rem;
+
+  font-weight: 800;
+
+  margin-bottom: 1rem;
+
+  color: #071133;
+}
+
+.notifications__hero h1 span {
+  background: linear-gradient(90deg, #8b5cf6, #b56cff);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.notifications__hero p {
+  max-width: 650px;
+
+  color: #5d6472;
+
+  line-height: 32px;
+}
+
+.notifications__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 1.5rem;
+}
+
+.notifications__header h2 {
+  color: #071133;
+
+  font-weight: 800;
+}
+
+.mark__all {
+  height: 50px;
+
+  padding: 0 1.2rem;
+
+  border: none;
+
+  border-radius: 1rem;
+
+  background: #071133;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  transition: 0.3s;
+}
+
+.mark__all:hover {
+  background: #8b5cf6;
+}
+
+.notifications__list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.notification__card {
+  background: white;
+
+  border-radius: 1.5rem;
+
+  padding: 1.4rem;
+
+  border: 1px solid #ebe7e2;
+
+  display: flex;
+  gap: 1rem;
+
+  transition: 0.3s;
+}
+
+.notification__card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.notification__card.unread {
+  border-left: 5px solid #8b5cf6;
+
+  background: #fcfbff;
+}
+
+.notification__icon {
+  width: 60px;
+  height: 60px;
+
+  flex-shrink: 0;
+
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification__icon i {
+  font-size: 1.4rem;
+}
+
+.trade {
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
+.success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.info {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+}
+
+.notification__body {
+  flex: 1;
+}
+
+.notification__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 0.5rem;
+}
+
+.notification__top h3 {
+  color: #071133;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  margin: 0;
+}
+
+.notification__top span {
+  color: #9ca3af;
+
+  font-size: 0.9rem;
+}
+
+.notification__body p {
+  color: #5d6472;
+
+  line-height: 28px;
+
+  margin-bottom: 0.8rem;
+}
+
+.notification__body a {
+  color: #8b5cf6;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .notifications {
+    padding: 1rem;
+  }
+
+  .notifications__hero {
+    padding: 2rem;
+  }
+
+  .notifications__hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .notifications__header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .mark__all {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .notification__card {
+    flex-direction: column;
+  }
+}
+
+.notifications__hero {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero__badge {
+  animation: scaleIn 0.6s ease 0.2s both;
+}
+
+.notifications__hero h1 {
+  animation: fadeRight 0.8s ease 0.3s both;
+}
+.link__back,
+p.text-muted,
+.notifications__hero p {
+  animation: fadeRight 0.8s ease 0.5s both;
+}
+.notifications__header {
+  animation: fadeUp 0.8s ease 0.7s both;
+}
+
+.mark__all {
+  animation: scaleIn 0.6s ease 0.8s both;
+}
+
+.mark__all:hover {
+  animation: pulseButton 0.5s ease;
+}
+.notification__card:nth-child(1) {
+  animation: fadeUp 0.7s ease 0.9s both;
+}
+
+.notification__card:nth-child(2) {
+  animation: fadeUp 0.7s ease 1.1s both;
+}
+
+.notification__card:nth-child(3) {
+  animation: fadeUp 0.7s ease 1.3s both;
+}
+
+.notification__card.unread .notification__icon {
+  animation: scaleIn 0.6s ease 1.4s both;
+}
+
+.notification__card.unread:hover .notification__icon {
+  animation: pulseGlow 0.8s ease;
+}
+
+.notification__body a:hover {
+  animation: pulseButton 0.4s ease;
+}

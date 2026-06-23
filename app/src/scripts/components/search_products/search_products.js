@@ -1,3 +1,6 @@
+import { buildContainerProducts } from "./functions/buildContainerProducts.js";
+import { findProductsByQuery } from "./functions/findProductsByQuery.js";
+
 const params = new URLSearchParams(window.location.search);
 const searchInput = document.getElementById("search_products");
 
@@ -11,3 +14,12 @@ searchInput.addEventListener("keydown", (event) => {
     }
   }
 });
+
+const results = await findProductsByQuery(params.get("search_query"));
+const containerResults = document.getElementById("results__search");
+const countResults = document.getElementById('count_results')
+countResults.textContent = results.length
+
+
+const content = await buildContainerProducts(results)
+containerResults.innerHTML = content

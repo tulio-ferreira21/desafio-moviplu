@@ -1,6 +1,7 @@
 import api from "../../../api/api.service.js";
 import toast from "../../../services/toasts.js";
 import { getCategories } from "../../../services/loadCategories.js";
+import { $ConvertStatusProduct } from "../../../data/bids.enum.js";
 
 export async function buildBodyProduct(products) {
   const categories = await getCategories();
@@ -27,7 +28,7 @@ export async function buildBodyProduct(products) {
 
           <div class="product__content">
             <div class="product__status ${product.status.toLowerCase()}">
-              ${product.status}
+              ${$ConvertStatusProduct[product.status]}
             </div>
 
             <h3>${product.name}</h3>
@@ -47,19 +48,7 @@ export async function buildBodyProduct(products) {
                 ${new Date(product.dateExpiration).toLocaleDateString("pt-BR")}
               </small>
             </div>
-
-            <div class="product__actions">
-              <button class="btn__edit" data-id="${product.id}">
-                <i class="bi bi-pencil"></i>
-                Editar
-              </button>
-
-              <button class="btn__pause" data-id="${product.id}">
-                <i class="bi bi-pause"></i>
-                ${product.status === "ACTIVE" ? "Pausar" : "Ativar"}
-              </button>
             </div>
-          </div>
         </a>
       `,
     )
