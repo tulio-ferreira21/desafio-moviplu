@@ -25,7 +25,7 @@
   font-weight: 600;
 }
 
-.results__grid {
+.results__search {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
   gap: 1.5rem;
@@ -41,6 +41,7 @@
   border: 1px solid #ebe7e2;
 
   transition: 0.3s ease;
+  text-decoration: none;
 }
 
 .result__card:hover {

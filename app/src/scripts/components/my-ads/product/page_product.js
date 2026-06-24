@@ -133,9 +133,12 @@ const buildPageProduct = async (product, bids) => {
     </div>
       <div class="product__card">
         <h1 class="border-bottom pb-3">Ofertas enviadas</h1>
-         ${bids
-           .map(
-             (bid) => `
+         ${
+           bids && bids.length <= 0
+             ? "<p class='text-muted'>Nenhuma oferta enviada</p>"
+             : bids
+                 .map(
+                   (bid) => `
 <div class="bid__card">
   <div class="bid__info">
     <h3>${bid.user.name}</h3>
@@ -180,8 +183,9 @@ const buildPageProduct = async (product, bids) => {
     }
 </div>
 `,
-           )
-           .join("")}
+                 )
+                 .join("")
+         }
       </div>
     </section>
   `;

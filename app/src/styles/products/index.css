@@ -13,6 +13,7 @@
 .search_results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  gap: 1.5rem;
 }
 .search__header {
   display: flex;

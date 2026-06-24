@@ -13,7 +13,7 @@ export async function buildContainerProducts(products) {
   return products
     .map((product) => {
       return `
-            <article onclick="${window.location.href = `${BASE_PATH}/src/pages/product/page.html?id=${product.id}`}" class="result__card">
+            <a href="${BASE_PATH}/src/pages/product/page.html?id=${product.id}" class="result__card">
                 <div class="result__image">
                     <img
                         src="${product.imagesUrl?.[0]}"
@@ -41,12 +41,10 @@ export async function buildContainerProducts(products) {
 
                     <div class="result__footer">
                     <small>${formatTimeAgo(product.createdAt)}</small>
-                    <a href="#" class="result__button">
-                        Ver anúncio
-                    </a>
+                  
                     </div>
                 </div>
-            </article>
+            </a>
         `;
     })
     .join("");
